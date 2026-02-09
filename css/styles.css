@@ -1,18 +1,26 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BASE */
 body {
   font-family: 'Montserrat', sans-serif;
   color: #111;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: min(90%, 1200px);
   margin: auto;
 }
 
@@ -40,13 +48,18 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #111;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff6a00;
 }
 
 /* HERO */
@@ -56,27 +69,30 @@ body {
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
 .hero-content {
   text-align: center;
-  width: 100%;
+  max-width: 800px;
+  padding: 0 1rem;
 }
 
-.hero-logo {
-  width: 100%;
-  max-width: 320px;
-  margin-bottom: 1.5rem;
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.2;
 }
 
 .hero p {
   margin: 1rem 0 2rem;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: #ddd;
 }
 
 /* SECTIONS */
 .section {
-  padding: 4rem 0;
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
 }
 
 .bg-dark {
@@ -88,10 +104,12 @@ body {
 .btn-primary,
 .btn-secondary {
   display: inline-block;
-  padding: 0.7rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.7rem;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .btn-primary {
@@ -99,25 +117,41 @@ body {
   color: #fff;
 }
 
+.btn-primary:hover {
+  background: #ff8126;
+  transform: translateY(-2px);
+}
+
 .btn-secondary {
   background: #222;
   color: #fff;
 }
 
+.btn-secondary:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
 /* CARDS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2.5rem;
 }
 
 .card {
   background: #fff;
   color: #111;
   padding: 2rem;
-  border-radius: 6px;
+  border-radius: 10px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .bg-dark .card {
@@ -129,14 +163,6 @@ body {
   border: 2px solid #ff6a00;
 }
 
-/* FOOTER */
-.footer {
-  background: #000;
-  color: #aaa;
-  text-align: center;
-  padding: 1rem 0;
-}
-
 /* PRÓXIMAMENTE */
 .coming-soon {
   background: #f5f5f5;
@@ -144,12 +170,19 @@ body {
 }
 
 .coming-content {
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
+  padding: 0 1rem;
+}
+
+.coming-image {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 2rem;
 }
 
 .coming-soon h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -159,18 +192,42 @@ body {
   color: #444;
 }
 
-/* RESPONSIVE */
+/* FOOTER */
+.footer {
+  background: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.9rem;
+}
+
+/* ========================= */
+/* RESPONSIVE BREAKPOINTS */
+/* ========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 80vh;
+  }
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
+    display: none; /* listo para menú hamburguesa */
   }
 
-  .hero-logo {
-    max-width: 240px;
+  .hero {
+    min-height: 75vh;
   }
 
-  .hero p {
-    font-size: 1rem;
+  .hero-content {
+    padding: 0 1.2rem;
+  }
+
+  .cards {
+    gap: 1.2rem;
   }
 
   .section {
@@ -178,16 +235,19 @@ body {
   }
 }
 
+/* SMALL MOBILE */
 @media (max-width: 480px) {
-  .hero {
-    min-height: 85vh;
+  .hero h1 {
+    font-size: 2rem;
   }
 
-  .hero-logo {
-    max-width: 200px;
+  .hero p {
+    font-size: 0.95rem;
   }
 
-  .coming-soon h3 {
-    font-size: 1.5rem;
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 }
