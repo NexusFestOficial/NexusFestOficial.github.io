@@ -51,7 +51,7 @@ body {
 
 /* HERO */
 .hero {
-  min-height: 90vh;
+  height: 90vh;
   background: linear-gradient(120deg, #000000, #020013);
   color: #fff;
   display: flex;
@@ -60,18 +60,14 @@ body {
 
 .hero-content {
   text-align: center;
-  width: 100%;
 }
 
-.hero-logo {
-  width: 100%;
-  max-width: 320px;
-  margin-bottom: 1.5rem;
+.hero h1 {
+  font-size: 3rem;
 }
 
 .hero p {
   margin: 1rem 0 2rem;
-  font-size: 1.1rem;
 }
 
 /* SECTIONS */
@@ -159,6 +155,12 @@ body {
   margin: auto;
 }
 
+.coming-image {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
 .coming-soon h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -168,37 +170,4 @@ body {
 .coming-soon p {
   font-size: 1rem;
   color: #444;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hero-logo {
-    max-width: 240px;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .section {
-    padding: 3rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    min-height: 85vh;
-  }
-
-  .hero-logo {
-    max-width: 200px;
-  }
-
-  .coming-soon h3 {
-    font-size: 1.5rem;
-  }
 }
