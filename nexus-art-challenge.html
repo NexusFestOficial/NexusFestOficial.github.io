@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="NEXUS ART CHALLENGE — Concurso de ilustración en vivo de NEXUS FEST 2026. Demuestra tu creatividad, técnica y capacidad de adaptación a un tema sorpresa."
+    >
+
+    <meta
+        name="theme-color"
+        content="#050509"
+    >
+
+    <title>NEXUS ART CHALLENGE | NEXUS FEST</title>
+
+
+    <!-- ========================= -->
+    <!-- GOOGLE FONTS -->
+    <!-- ========================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ========================= -->
+    <!-- CSS -->
+    <!-- ========================= -->
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+
+</head>
+
+
+<style>
+
+    /*
+    ========================================================
+    SECCIONES CLARAS
+    ========================================================
+    */
+
+    .section:not(.dark-section) {
+        color: #202020;
+    }
+
+
+    .section:not(.dark-section) .section-heading h1,
+    .section:not(.dark-section) .section-heading h2,
+    .section:not(.dark-section) .section-heading h3 {
+        color: #111111 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .section-heading p:not(.section-kicker) {
+        color: #555555 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text {
+        color: #222222 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text h3,
+    .section:not(.dark-section) .event-text h4 {
+        color: #111111 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text p,
+    .section:not(.dark-section) .event-text li {
+        color: #333333 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text strong {
+        color: #111111 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text ul {
+        color: #333333 !important;
+    }
+
+
+    .section:not(.dark-section) .section-kicker {
+        color: #00d9ff !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    LISTAS DE SECCIONES CLARAS
+    ========================================================
+    */
+
+    .section:not(.dark-section) .event-text ul li::marker {
+        color: #00bcd4;
+    }
+
+
+    /*
+    ========================================================
+    SECCIONES OSCURAS
+    ========================================================
+    */
+
+    .dark-section {
+        color: #ffffff;
+    }
+
+
+    .dark-section .section-heading h1,
+    .dark-section .section-heading h2,
+    .dark-section .section-heading h3 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .section-heading p:not(.section-kicker) {
+        color: #d6d6d6 !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text {
+        color: #eeeeee !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text h3,
+    .dark-section .event-text h4 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text p,
+    .dark-section .event-text li {
+        color: #e5e5e5 !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text strong {
+        color: #ffffff !important;
+    }
+
+
+    .dark-section .section-kicker {
+        color: #00d9ff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text ul li::marker {
+        color: #00d9ff;
+    }
+
+
+    /*
+    ========================================================
+    CUADROS BLANCOS
+    ========================================================
+    */
+
+    .info-card {
+        color: #222222 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card small {
+        color: #777777 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card strong {
+        color: #111111 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card em {
+        color: #666666 !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    TARJETAS OSCURAS DE EXPERIENCIA
+    ========================================================
+    */
+
+    .experience-card h3 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .experience-card p {
+        color: #e5e5e5 !important;
+        opacity: 1 !important;
+    }
+
+
+    .experience-card strong {
+        color: #ffffff !important;
+    }
+
+
+    /*
+    ========================================================
+    BOTONES
+    ========================================================
+    */
+
+    .btn {
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    CORRECCIÓN ESPECÍFICA PARA SECCIONES CLARAS
+    ========================================================
+    */
+
+    #informacion .event-text,
+    #informacion .event-text p,
+
+    .section:not(.dark-section) .event-text,
+    .section:not(.dark-section) .event-text p,
+    .section:not(.dark-section) .event-text li,
+
+    .section:not(.dark-section) .event-text h3 {
+        color: #222222 !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    MOBILE
+    ========================================================
+    */
+
+    @media (max-width: 768px) {
+
+        .section:not(.dark-section) .event-text,
+        .section:not(.dark-section) .event-text p,
+        .section:not(.dark-section) .event-text li {
+            color: #222222 !important;
+            opacity: 1 !important;
+        }
+
+
+        .dark-section .event-text,
+        .dark-section .event-text p,
+        .dark-section .event-text li {
+            color: #eeeeee !important;
+            opacity: 1 !important;
+        }
+
+    }
+
+</style>
+
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <img
+                    src="assets/img/logo-nexus-fest-sin-fondo.png"
+                    alt="NEXUS FEST"
+                >
+
+            </a>
+
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                type="button"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="nav-menu"
+                id="navMenu"
+            >
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#evento">
+                            Evento
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="concursos.html"
+                            class="active"
+                        >
+                            Concursos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#stands">
+                            Stands
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#acceso">
+                            Acceso
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#ubicacion">
+                            Ubicación
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ========================= -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main>
+
+
+        <!-- ========================= -->
+        <!-- HERO -->
+        <!-- ========================= -->
+
+        <section class="hero">
+
+            <div class="hero-background"></div>
+
+            <div class="container hero-content">
+
+
+                <div class="hero-logo">
+
+                    <img
+                        src="assets/img/logo-nexus-fest-sin-fondo.png"
+                        alt="NEXUS FEST"
+                    >
+
+                </div>
+
+
+                <p class="hero-edition">
+                    CONCURSO OFICIAL
+                </p>
+
+
+                <h1>
+
+                    NEXUS ART
+
+                    <span>
+                        CHALLENGE.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    ¿Tienes talento para el dibujo
+                    y la ilustración?
+
+                    Pon a prueba tu creatividad,
+                    técnica y capacidad de adaptación
+                    a un tema sorpresa.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#registro"
+                        class="btn btn-primary"
+                    >
+                        QUIERO PARTICIPAR
+                    </a>
+
+
+                    <a
+                        href="concursos.html"
+                        class="btn btn-outline"
+                    >
+                        VOLVER A CONCURSOS
+                    </a>
+
+                </div>
+
+
+                <div class="hero-date">
+
+                    <span>
+                        NEXUS FEST 2026
+                    </span>
+
+                    <strong>
+                        CENTRO RECREATIVO · FRONTERA, TABASCO
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- PRESENTACIÓN -->
+        <!-- ========================= -->
+
+ <section
+        class="section dark-section"
+        id="inscripcion">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                        DEMUESTRA TU TALENTO
+                    </p>
+
+                    <h2>
+                        NEXUS ART CHALLENGE
+                    </h2>
+
+                    <p>
+
+                        Nexus Fest invita a artistas,
+                        dibujantes y creativos a participar
+                        en un concurso de ilustración en vivo,
+                        donde pondrán a prueba su creatividad,
+                        técnica y capacidad de adaptación
+                        a un tema sorpresa.
+
+                    </p>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-text">
+
+                        <h3>
+                            MÁS QUE UN CONCURSO.
+                        </h3>
+
+
+                        <p>
+
+                            Esta es una oportunidad para
+                            mostrar tu creatividad, convivir
+                            con la comunidad y demostrar
+                            tu talento artístico frente
+                            a un desafío inesperado.
+
+                        </p>
+
+
+                        <p>
+
+                            El tema de la ilustración será
+                            seleccionado mediante sorteo
+                            el día del evento.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="event-info">
+
+
+                        <div class="info-card">
+
+                            <span>
+                                🎨
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    CONCURSO
+                                </small>
+
+                                <strong>
+                                    ILUSTRACIÓN EN VIVO
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                🎲
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    TEMA
+                                </small>
+
+                                <strong>
+                                    SORPRESA
+                                </strong>
+
+                                <em>
+                                    Seleccionado mediante sorteo
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                👥
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    CUPO
+                                </small>
+
+                                <strong>
+                                    15 PARTICIPANTES
+                                </strong>
+
+                                <em>
+                                    Cupo limitado
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- DATOS GENERALES -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading light">
+
+                    <p class="section-kicker">
+                        INFORMACIÓN GENERAL
+                    </p>
+
+                    <h2>
+                        DATOS DEL CONCURSO
+                    </h2>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🎨
+                        </div>
+
+                        <h3>
+                            ILUSTRACIÓN
+                        </h3>
+
+                        <p>
+                            Concurso presencial de
+                            ilustración en vivo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            15 PARTICIPANTES
+                        </h3>
+
+                        <p>
+                            El cupo inicial será de
+                            únicamente 15 participantes.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            📍
+                        </div>
+
+                        <h3>
+                            CENTRO RECREATIVO
+                        </h3>
+
+                        <p>
+                            Frontera, Centla, Tabasco.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            ⏱️
+                        </div>
+
+                        <h3>
+                            90 MINUTOS
+                        </h3>
+
+                        <p>
+                            Tiempo máximo para realizar
+                            la ilustración.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- REQUISITOS -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        ANTES DE REGISTRARTE
+                    </p>
+
+                    <h2>
+                        REQUISITOS DE PARTICIPACIÓN
+                    </h2>
+
+                    <p>
+                        Asegúrate de cumplir con las
+                        condiciones para participar.
+                    </p>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-text">
+
+                        <h3>
+                            PARTICIPACIÓN
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Podrán participar personas
+                                de <strong>12 años en adelante.</strong>
+                            </li>
+
+                            <li>
+                                El cupo inicial será de
+                                <strong>15 participantes.</strong>
+                            </li>
+
+                            <li>
+                                Los participantes menores
+                                de edad deberán contar con
+                                autorización de padre,
+                                madre o tutor.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="info-card">
+
+                            <span>
+                                💰
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    CUOTA DE RECUPERACIÓN
+                                </small>
+
+                                <strong>
+                                    $150 MXN
+                                </strong>
+
+                                <em>
+                                    Por participante
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                📝
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    REGISTRO
+                                </small>
+
+                                <strong>
+                                    FORMULARIO OFICIAL
+                                </strong>
+
+                                <em>
+                                    La participación será confirmada
+                                    después de validar registro y pago.
+                                </em>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- DESARROLLO -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading light">
+
+                    <p class="section-kicker">
+                        ASÍ FUNCIONARÁ
+                    </p>
+
+                    <h2>
+                        DESARROLLO DEL CONCURSO
+                    </h2>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            📍
+                        </div>
+
+                        <h3>
+                            PRESENCIAL
+                        </h3>
+
+                        <p>
+                            El concurso se realizará
+                            de manera presencial durante
+                            NEXUS FEST.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🎲
+                        </div>
+
+                        <h3>
+                            TEMA SORPRESA
+                        </h3>
+
+                        <p>
+                            El tema será seleccionado
+                            mediante sorteo el día
+                            del evento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            ✏️
+                        </div>
+
+                        <h3>
+                            CREA EN EL MOMENTO
+                        </h3>
+
+                        <p>
+                            Todos los participantes
+                            deberán desarrollar su obra
+                            durante el tiempo oficial.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            ⏱️
+                        </div>
+
+                        <h3>
+                            90 MINUTOS
+                        </h3>
+
+                        <p>
+                            El tiempo máximo para realizar
+                            la ilustración será de 90 minutos.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- MATERIALES -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        PREPARA TUS HERRAMIENTAS
+                    </p>
+
+                    <h2>
+                        MATERIALES
+                    </h2>
+
+                    <p>
+                        La organización proporcionará algunos
+                        elementos y cada participante deberá
+                        llevar sus propios materiales de trabajo.
+                    </p>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-info">
+
+                        <div class="info-card">
+
+                            <span>
+                                📄
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    PROPORCIONADO POR LA ORGANIZACIÓN
+                                </small>
+
+                                <strong>
+                                    PAPEL CASCARÓN OFICIAL
+                                </strong>
+
+                                <em>
+                                    Material oficial para el concurso.
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                🔢
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    IDENTIFICACIÓN
+                                </small>
+
+                                <strong>
+                                    NÚMERO DE PARTICIPANTE
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-text">
+
+                        <h3>
+                            DEBES LLEVAR
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Lápices.
+                            </li>
+
+                            <li>
+                                Colores.
+                            </li>
+
+                            <li>
+                                Plumones.
+                            </li>
+
+                            <li>
+                                Marcadores.
+                            </li>
+
+                            <li>
+                                Borradores.
+                            </li>
+
+                            <li>
+                                Herramientas de dibujo tradicionales.
+                            </li>
+
+                        </ul>
+
+                        <p>
+
+                            No se permitirá el uso de materiales
+                            que puedan dañar las instalaciones
+                            o afectar el trabajo de otros
+                            participantes.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- EVALUACIÓN -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading light">
+
+                    <p class="section-kicker">
+                        ASÍ SE CALIFICARÁ
+                    </p>
+
+                    <h2>
+                        CRITERIOS DE EVALUACIÓN
+                    </h2>
+
+                    <p>
+                        El jurado calificará los siguientes
+                        aspectos de la obra.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            💡
+                        </div>
+
+                        <h3>
+                            CREATIVIDAD
+                        </h3>
+
+                        <p>
+                            Creatividad e interpretación
+                            del tema asignado.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🎨
+                        </div>
+
+                        <h3>
+                            CALIDAD ARTÍSTICA
+                        </h3>
+
+                        <p>
+                            Calidad artística y técnica
+                            de la obra.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            ORIGINALIDAD
+                        </h3>
+
+                        <p>
+                            Originalidad de la propuesta
+                            presentada.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🖼️
+                        </div>
+
+                        <h3>
+                            COMPOSICIÓN
+                        </h3>
+
+                        <p>
+                            Composición visual y presentación
+                            general de la obra.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="event-info">
+
+                    <div class="info-card">
+
+                        <span>
+                            ⚖️
+                        </span>
+
+                        <div>
+
+                            <small>
+                                DECISIÓN DEL JURADO
+                            </small>
+
+                            <strong>
+                                INAPELABLE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- REFERENCIAS -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        REGLAS PARA LA CREACIÓN
+                    </p>
+
+                    <h2>
+                        REFERENCIAS Y USO DE DISPOSITIVOS
+                    </h2>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-info">
+
+                        <div class="info-card">
+
+                            <span>
+                                📱
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    DISPOSITIVOS
+                                </small>
+
+                                <strong>
+                                    REFERENCIA VISUAL
+                                </strong>
+
+                                <em>
+                                    Se permiten teléfonos celulares,
+                                    tabletas o dispositivos electrónicos
+                                    únicamente como referencia visual.
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                🤖
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    INTELIGENCIA ARTIFICIAL
+                                </small>
+
+                                <strong>
+                                    NO PERMITIDA
+                                </strong>
+
+                                <em>
+                                    No se permitirá utilizar imágenes
+                                    generadas mediante Inteligencia Artificial
+                                    durante el concurso.
+                                </em>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-text">
+
+                        <h3>
+                            TU OBRA DEBE SER ORIGINAL
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                No se permitirá copiar obras de terceros.
+                            </li>
+
+                            <li>
+                                No se permitirá calcar trabajos de terceros.
+                            </li>
+
+                            <li>
+                                La ilustración deberá ser realizada por
+                                el participante durante el tiempo oficial
+                                del concurso.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- DESCALIFICACIÓN -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading light">
+
+                    <p class="section-kicker">
+                        MUY IMPORTANTE
+                    </p>
+
+                    <h2>
+                        MOTIVOS DE DESCALIFICACIÓN
+                    </h2>
+
+                    <p>
+                        Podrán ser motivo de descalificación
+                        las siguientes situaciones:
+                    </p>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-text">
+
+                        <ul>
+
+                            <li>
+                                Presentar trabajos realizados previamente.
+                            </li>
+
+                            <li>
+                                Utilizar imágenes generadas por
+                                Inteligencia Artificial como base para la obra.
+                            </li>
+
+                            <li>
+                                Copiar o calcar trabajos de terceros.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="event-text">
+
+                        <ul>
+
+                            <li>
+                                Incumplir las indicaciones de la organización.
+                            </li>
+
+                            <li>
+                                Mostrar conductas inapropiadas durante
+                                el concurso.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- PREMIOS -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        RECONOCIMIENTO AL TALENTO
+                    </p>
+
+                    <h2>
+                        PREMIOS
+                    </h2>
+
+                    <p>
+                        Demuestra tu talento y compite
+                        por el primer lugar.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🥇
+                        </div>
+
+                        <h3>
+                            PRIMER LUGAR
+                        </h3>
+
+                        <p>
+
+                            <strong>
+                                $800 MXN
+                            </strong>
+
+                            en efectivo.
+
+                        </p>
+
+                        <p>
+                            Reconocimiento oficial
+                            NEXUS FEST.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🥈
+                        </div>
+
+                        <h3>
+                            SEGUNDO LUGAR
+                        </h3>
+
+                        <p>
+                            Reconocimiento oficial
+                            NEXUS FEST.
+                        </p>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-icon">
+                            🥉
+                        </div>
+
+                        <h3>
+                            TERCER LUGAR
+                        </h3>
+
+                        <p>
+                            Reconocimiento oficial
+                            NEXUS FEST.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- REGISTRO -->
+        <!-- ========================= -->
+
+        <section
+            class="section dark-section"
+            id="registro"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading light">
+
+                    <p class="section-kicker">
+                        ASEGURA TU LUGAR
+                    </p>
+
+                    <h2>
+                        REGISTRO
+                    </h2>
+
+                    <p>
+                        El cupo inicial es de únicamente
+                        15 participantes.
+                    </p>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-text">
+
+                        <h3>
+                            DATOS NECESARIOS
+                        </h3>
+
+                        <p>
+                            Para participar deberás proporcionar
+                            la siguiente información:
+                        </p>
+
+                        <ol>
+
+                            <li>
+                                Nombre completo del participante.
+                            </li>
+
+                            <li>
+                                Edad.
+                            </li>
+
+                            <li>
+                                Municipio o ciudad de procedencia.
+                            </li>
+
+                            <li>
+                                Nombre artístico, opcional.
+                            </li>
+
+                            <li>
+                                Número telefónico.
+                            </li>
+
+                            <li>
+                                Nombre y contacto del tutor,
+                                en caso de ser menor de edad.
+                            </li>
+
+                            <li>
+                                Redes sociales del participante,
+                                opcional y únicamente para promoción.
+                            </li>
+
+                        </ol>
+
+                    </div>
+
+
+                    <div class="event-info">
+
+
+                        <div class="info-card">
+
+                            <span>
+                                💰
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    CUOTA
+                                </small>
+
+                                <strong>
+                                    $150 MXN
+                                </strong>
+
+                                <em>
+                                    Por participante
+                                </em>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-card">
+
+                            <span>
+                                📅
+                            </span>
+
+                            <div>
+
+                                <small>
+                                    FECHA LÍMITE DE REGISTRO ANTICIPADO
+                                </small>
+
+                                <strong>
+                                    25 DE SEPTIEMBRE DE 2026
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="cta-buttons"
+                    style="margin-top: 40px;"
+                >
+
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSf1n4tKQU7Dcl7tVNpyPRWzIRqGTpYS-ZFe746ISwJBM8jgJg/viewform?usp=sharing&ouid=109071598075087128483"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        REGISTRARME AL CONCURSO
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- CONSIDERACIONES -->
+        <!-- ========================= -->
+
+        <section class="section dark-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        ANTES DE PARTICIPAR
+                    </p>
+
+                    <h2>
+                        CONSIDERACIONES IMPORTANTES
+                    </h2>
+
+                </div>
+
+
+                <div class="event-grid">
+
+
+                    <div class="event-text">
+
+                        <ul>
+
+                            <li>
+                                La participación en el concurso
+                                implica la aceptación total de
+                                la presente convocatoria.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="event-text">
+
+                        <ul>
+
+                            <li>
+                                Cualquier situación no prevista
+                                será resuelta por el Comité
+                                Organizador de NEXUS FEST.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- MENSAJE FINAL -->
+        <!-- ========================= -->
+
+        <section class="final-cta">
+
+            <div class="container">
+
+
+                <img
+                    src="assets/img/logo-nexus-fest-sin-fondo.png"
+                    alt="NEXUS FEST"
+                    class="final-logo"
+                >
+
+
+                <h2>
+                    ACEPTA EL RETO.
+                </h2>
+
+
+                <p>
+
+                    Nexus Fest busca convertirse en un
+                    espacio donde el talento local brille.
+
+                    Esta es tu oportunidad de mostrar
+                    tu creatividad, convivir con la comunidad
+                    y formar parte de la primera edición
+                    de un evento que busca crecer año con año.
+
+                </p>
+
+
+                <p>
+
+                    ¡Deja volar tu imaginación y demuestra
+                    tu talento en el NEXUS ART CHALLENGE!
+
+                </p>
+
+
+                <div class="cta-buttons">
+
+
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSf1n4tKQU7Dcl7tVNpyPRWzIRqGTpYS-ZFe746ISwJBM8jgJg/viewform?usp=sharing&ouid=109071598075087128483"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+                        QUIERO PARTICIPAR
+                    </a>
+
+
+                    <a
+                        href="concursos.html"
+                        class="btn btn-outline"
+                    >
+                        VER OTROS CONCURSOS
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <img
+                src="assets/img/logo-nexus-fest-sin-fondo.png"
+                alt="NEXUS FEST"
+                class="footer-logo"
+            >
+
+
+            <p>
+                NEXUS FEST · Primera Edición
+            </p>
+
+
+            <p>
+                04 de octubre de 2026 ·
+                Frontera, Centla, Tabasco
+            </p>
+
+
+            <p class="footer-slogan">
+                No es un evento. Es una experiencia.
+            </p>
+
+
+            <small>
+                © 2026 NEXUS FEST.
+                Todos los derechos reservados.
+            </small>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+```
