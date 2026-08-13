@@ -823,7 +823,7 @@ a:focus-visible {
 .event-text p {
   margin-bottom: 1.2rem;
 
-  color: #555;
+  color: #555555;
 }
 
 .text-link {
@@ -1344,7 +1344,7 @@ a:focus-visible {
 }
 
 .access-box > p:not(.section-kicker) {
-  color: #aaa;
+  color: #aaaaaa;
 }
 
 .access-details {
