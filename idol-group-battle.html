@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="IDOL GROUP BATTLE — Concurso oficial de baile y performance idol de NEXUS FEST. Primera edición en Frontera, Centla, Tabasco."
+>
+
+<meta
+    name="theme-color"
+    content="#050509"
+>
+
+<title>IDOL GROUP BATTLE | NEXUS FEST</title>
+
+
+<!-- ========================= -->
+<!-- GOOGLE FONTS -->
+<!-- ========================= -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<!-- ========================= -->
+<!-- CSS -->
+<!-- ========================= -->
+
+<link
+    rel="stylesheet"
+    href="css/styles.css"
+>
+```
+
+<style>
+
+    /*
+    ========================================================
+    SECCIONES CLARAS
+    ========================================================
+    */
+
+    .section:not(.dark-section) {
+        color: #eeecec;
+    }
+
+
+    .section:not(.dark-section) .section-heading h1,
+    .section:not(.dark-section) .section-heading h2,
+    .section:not(.dark-section) .section-heading h3 {
+        color: #ebe8e8 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .section-heading p:not(.section-kicker) {
+        color: #f1f1f1 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text {
+        color: #d6d6d6 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text h3,
+    .section:not(.dark-section) .event-text h4 {
+        color: #e2e1e1 !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text p,
+    .section:not(.dark-section) .event-text li {
+        color: #ececec !important;
+        opacity: 1 !important;
+    }
+
+
+    .section:not(.dark-section) .event-text strong {
+        color: #cccccc !important;
+    }
+
+
+    .section:not(.dark-section) .event-text ul {
+        color: #dfdfdf !important;
+    }
+
+
+    .section:not(.dark-section) .section-kicker {
+        color: #00d9ff !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    LISTAS DE SECCIONES CLARAS
+    ========================================================
+    */
+
+    .section:not(.dark-section) .event-text ul li::marker {
+        color: #00bcd4;
+    }
+
+
+    /*
+    ========================================================
+    SECCIONES OSCURAS
+    ========================================================
+    */
+
+    .dark-section {
+        color: #ffffff;
+    }
+
+
+    .dark-section .section-heading h1,
+    .dark-section .section-heading h2,
+    .dark-section .section-heading h3 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .section-heading p:not(.section-kicker) {
+        color: #d6d6d6 !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text {
+        color: #eeeeee !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text h3,
+    .dark-section .event-text h4 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text p,
+    .dark-section .event-text li {
+        color: #e5e5e5 !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text strong {
+        color: #ffffff !important;
+    }
+
+
+    .dark-section .section-kicker {
+        color: #00d9ff !important;
+        opacity: 1 !important;
+    }
+
+
+    .dark-section .event-text ul li::marker {
+        color: #00d9ff;
+    }
+
+
+    /*
+    ========================================================
+    CUADROS BLANCOS
+    ========================================================
+    */
+
+    .info-card {
+        color: #e2e2e2 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card small {
+        color: #777777 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card strong {
+        color: #111111 !important;
+        opacity: 1 !important;
+    }
+
+
+    .info-card em {
+        color: #666666 !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    TARJETAS OSCURAS DE EXPERIENCIA
+    ========================================================
+    */
+
+    .experience-card h3 {
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+
+
+    .experience-card p {
+        color: #e5e5e5 !important;
+        opacity: 1 !important;
+    }
+
+
+    .experience-card strong {
+        color: #ffffff !important;
+    }
+
+
+    /*
+    ========================================================
+    BOTONES
+    ========================================================
+    */
+
+    .btn {
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    CORRECCIÓN ESPECÍFICA PARA SECCIONES CLARAS
+    ========================================================
+    */
+
+    #informacion .event-text,
+    #informacion .event-text p,
+
+    .section:not(.dark-section) .event-text,
+    .section:not(.dark-section) .event-text p,
+    .section:not(.dark-section) .event-text li,
+
+    .section:not(.dark-section) .event-text h3 {
+        color: #e6e5e5 !important;
+        opacity: 1 !important;
+    }
+
+
+    /*
+    ========================================================
+    MOBILE
+    ========================================================
+    */
+
+    @media (max-width: 768px) {
+
+        .section:not(.dark-section) .event-text,
+        .section:not(.dark-section) .event-text p,
+        .section:not(.dark-section) .event-text li {
+            color: #9e9e9e !important;
+            opacity: 1 !important;
+        }
+
+
+        .dark-section .event-text,
+        .dark-section .event-text p,
+        .dark-section .event-text li {
+            color: #eeeeee !important;
+            opacity: 1 !important;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+```
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="assets/img/logo-nexus-fest-sin-fondo.png"
+                alt="NEXUS FEST"
+            >
+
+        </a>
+
+
+        <!-- BOTÓN MENÚ MÓVIL -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            type="button"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <!-- NAVEGACIÓN -->
+
+        <nav
+            class="nav-menu"
+            id="navMenu"
+        >
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#evento">
+                        Evento
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="concursos.html"
+                        class="active"
+                    >
+                        Concursos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#stands">
+                        Stands
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#acceso">
+                        Acceso
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#ubicacion">
+                        Ubicación
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================= -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ========================= -->
+
+<main>
+
+
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section class="hero idol-hero">
+
+        <div class="hero-background"></div>
+
+        <div class="container hero-content">
+
+
+            <div class="hero-logo">
+
+                <img
+                    src="assets/img/logo-nexus-fest-sin-fondo.png"
+                    alt="NEXUS FEST"
+                >
+
+            </div>
+
+
+            <p class="hero-edition">
+                CONCURSO OFICIAL
+            </p>
+
+
+            <h1>
+
+                IDOL GROUP
+
+                <span>
+                    BATTLE.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Reúne a tu grupo, prepara tu performance
+                y demuestra todo tu talento sobre el
+                escenario de NEXUS FEST.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#informacion"
+                    class="btn btn-primary"
+                >
+                    VER CONVOCATORIA
+                </a>
+
+
+                <a
+                    href="concursos.html"
+                    class="btn btn-outline"
+                >
+                    VOLVER A CONCURSOS
+                </a>
+
+            </div>
+
+
+            <div class="hero-date">
+
+                <span>
+                    DOMINGO 4 OCTUBRE 2026
+                </span>
+
+                <strong>
+                    CENTRO RECREATIVO · FRONTERA, TABASCO
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SOBRE LA COMPETENCIA -->
+    <!-- ========================= -->
+
+    <section
+        class="section dark-section"
+        id="informacion"
+    >
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    CONCURSO OFICIAL
+                </p>
+
+                <h2>
+                    SOBRE LA COMPETENCIA
+                </h2>
+
+                <p>
+
+                    El Idol Group Battle busca reconocer
+                    el talento, la dedicación y la pasión
+                    de los grupos idol, brindándoles un
+                    escenario profesional para mostrar
+                    su trabajo ante el público.
+
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <h3>
+                        EL ESCENARIO ES DE USTEDES.
+                    </h3>
+
+                    <p>
+
+                        NEXUS FEST invita a todos los
+                        Idol Groups locales y regionales
+                        a participar en esta competencia
+                        oficial de baile y performance idol.
+
+                    </p>
+
+                    <p>
+
+                        Es una oportunidad para presentar
+                        el trabajo de tu grupo, convivir
+                        con la comunidad y demostrar
+                        coordinación, energía y talento
+                        sobre el escenario.
+
+                    </p>
+
+                </div>
+
+
+                <div class="event-info">
+
+
+                    <div class="info-card">
+
+                        <span>
+                            👥
+                        </span>
+
+                        <div>
+
+                            <small>
+                                PARTICIPANTES
+                            </small>
+
+                            <strong>
+                                3 A 8 INTEGRANTES
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            🏆
+                        </span>
+
+                        <div>
+
+                            <small>
+                                CUPO
+                            </small>
+
+                            <strong>
+                                8 GRUPOS
+                            </strong>
+
+                            <em>
+                                Grupos seleccionados
+                            </em>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            🎤
+                        </span>
+
+                        <div>
+
+                            <small>
+                                PRESENTACIÓN
+                            </small>
+
+                            <strong>
+                                MÁXIMO 4 MINUTOS
+                            </strong>
+
+                            <em>
+                                Una canción por grupo
+                            </em>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- REQUISITOS -->
+    <!-- ========================= -->
+
+    <section class="section dark-section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading light">
+
+                <p class="section-kicker">
+                    ANTES DE REGISTRARTE
+                </p>
+
+                <h2>
+                    REQUISITOS DE PARTICIPACIÓN
+                </h2>
+
+                <p>
+                    Asegúrate de cumplir con las condiciones
+                    establecidas para formar parte de la competencia.
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Grupos locales o regionales.
+                        </li>
+
+                        <li>
+                            Mínimo de
+                            <strong>3 integrantes.</strong>
+                        </li>
+
+                        <li>
+                            Máximo de
+                            <strong>8 integrantes.</strong>
+                        </li>
+
+                        <li>
+                            Presentar
+                            <strong>1 canción por grupo.</strong>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Duración máxima de la canción:
+                            <strong>4 minutos.</strong>
+                        </li>
+
+                        <li>
+                            Edad mínima:
+                            <strong>10 años.</strong>
+                        </li>
+
+                        <li>
+                            La participación deberá ser
+                            mediante performance grupal.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🎤
+                    </div>
+
+                    <h3>
+                        K-POP
+                    </h3>
+
+                    <p>
+                        Se permiten presentaciones
+                        inspiradas en K-pop.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🎌
+                    </div>
+
+                    <h3>
+                        J-POP
+                    </h3>
+
+                    <p>
+                        Presentaciones inspiradas
+                        en J-pop.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        IDOL / COVERS ANIME
+                    </h3>
+
+                    <p>
+                        Covers y performances
+                        inspiradas en anime e idols.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PRESENTACIÓN -->
+    <!-- ========================= -->
+
+    <section class="section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    PREPARA TU PERFORMANCE
+                </p>
+
+                <h2>
+                    SOBRE LA PRESENTACIÓN
+                </h2>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        💃
+                    </div>
+
+                    <h3>
+                        COREOGRAFÍA
+                    </h3>
+
+                    <p>
+                        La coreografía deberá estar
+                        preparada y ensayada previamente.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        👗
+                    </div>
+
+                    <h3>
+                        VESTUARIO
+                    </h3>
+
+                    <p>
+                        El vestuario deberá ser acorde
+                        a la presentación.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        PERFORMANCE GRUPAL
+                    </h3>
+
+                    <p>
+                        La competencia es exclusivamente
+                        grupal. No se permiten solistas.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        ESCENOGRAFÍA
+                    </h3>
+
+                    <p>
+                        No se permiten cambios
+                        de escenografía.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="event-text">
+
+                <p>
+
+                    Cada grupo contará con una entrada
+                    y salida rápida para mantener
+                    el desarrollo dinámico de la competencia.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PROHIBICIONES -->
+    <!-- ========================= -->
+
+    <section class="section dark-section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading light">
+
+                <p class="section-kicker">
+                    MUY IMPORTANTE
+                </p>
+
+                <h2>
+                    PROHIBICIONES
+                </h2>
+
+                <p>
+                    Para garantizar la seguridad y el respeto
+                    durante la competencia, no se permitirá:
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Contenido ofensivo o discriminatorio.
+                        </li>
+
+                        <li>
+                            Lenguaje inapropiado.
+                        </li>
+
+                        <li>
+                            Uso de fuego o pirotecnia.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Uso de objetos peligrosos.
+                        </li>
+
+                        <li>
+                            Retrasos en el horario asignado.
+                        </li>
+
+                        <li>
+                            Falta de respeto a otros participantes,
+                            staff o público.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- REQUERIMIENTOS TÉCNICOS -->
+    <!-- ========================= -->
+
+    <section class="section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    PREPARA TU AUDIO
+                </p>
+
+                <h2>
+                    REQUERIMIENTOS TÉCNICOS
+                </h2>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        💾
+                    </div>
+
+                    <h3>
+                        MEMORIA USB
+                    </h3>
+
+                    <p>
+                        La pista musical deberá entregarse
+                        en USB el día del evento.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        MP3 O WAV
+                    </h3>
+
+                    <p>
+                        La pista deberá estar en formato
+                        MP3 o WAV.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🔊
+                    </div>
+
+                    <h3>
+                        PRUEBA DE AUDIO
+                    </h3>
+
+                    <p>
+                        Cada grupo contará con una
+                        prueba rápida de audio.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        🎤
+                    </div>
+
+                    <h3>
+                        MICRÓFONO
+                    </h3>
+
+                    <p>
+                        Disponible únicamente para
+                        presentación, si aplica.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- EVALUACIÓN -->
+    <!-- ========================= -->
+
+    <section class="section dark-section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading light">
+
+                <p class="section-kicker">
+                    ASÍ SE CALIFICARÁ
+                </p>
+
+                <h2>
+                    CRITERIOS DE EVALUACIÓN
+                </h2>
+
+                <p>
+                    El jurado calificará los siguientes aspectos:
+                </p>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        💃
+                    </div>
+
+                    <h3>
+                        COREOGRAFÍA
+                    </h3>
+
+                    <p class="prize-amount">
+                        40%
+                    </p>
+
+                    <p>
+                        Ejecución y calidad de la coreografía.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        COORDINACIÓN GRUPAL
+                    </h3>
+
+                    <p class="prize-amount">
+                        25%
+                    </p>
+
+                    <p>
+                        Sincronización y trabajo en equipo.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        PRESENCIA ESCÉNICA
+                    </h3>
+
+                    <p class="prize-amount">
+                        20%
+                    </p>
+
+                    <p>
+                        Energía, actitud y desenvolvimiento
+                        sobre el escenario.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-icon">
+                        👗
+                    </div>
+
+                    <h3>
+                        VESTUARIO Y CONCEPTO
+                    </h3>
+
+                    <p class="prize-amount">
+                        15%
+                    </p>
+
+                    <p>
+                        Coherencia visual y concepto
+                        de la presentación.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="art-warning">
+
+                <h3>
+                    DECISIÓN DEL JURADO
+                </h3>
+
+                <p>
+                    La decisión del jurado será
+                    final e inapelable.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- PREMIOS -->
+    <!-- ========================= -->
+
+    <section class="section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    RECONOCIMIENTO AL TALENTO
+                </p>
+
+                <h2>
+                    PREMIOS
+                </h2>
+
+                <p>
+                    Reconocimiento para los tres primeros
+                    lugares de la competencia.
+                </p>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <!-- PRIMER LUGAR -->
+
+                <article class="experience-card art-prize-card art-prize-first">
+
+                    <div class="experience-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        PRIMER LUGAR
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Trofeo oficial NEXUS FEST
+                        </strong>
+                    </p>
+
+                    <p>
+                        Premio en efectivo
+                        o equivalente.
+                    </p>
+
+                    <p>
+                        Reconocimiento en las
+                        redes sociales oficiales.
+                    </p>
+
+                </article>
+
+
+                <!-- SEGUNDO LUGAR -->
+
+                <article class="experience-card art-prize-card">
+
+                    <div class="experience-icon">
+                        🥈
+                    </div>
+
+                    <h3>
+                        SEGUNDO LUGAR
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Medalla
+                        </strong>
+                    </p>
+
+                    <p>
+                        Publicación destacada.
+                    </p>
+
+                </article>
+
+
+                <!-- TERCER LUGAR -->
+
+                <article class="experience-card art-prize-card">
+
+                    <div class="experience-icon">
+                        🥉
+                    </div>
+
+                    <h3>
+                        TERCER LUGAR
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Medalla
+                        </strong>
+                    </p>
+
+                    <p>
+                        Publicación destacada.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- INSCRIPCIÓN -->
+    <!-- ========================= -->
+
+    <section class="section dark-section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading light">
+
+                <p class="section-kicker">
+                    ASEGURA TU LUGAR
+                </p>
+
+                <h2>
+                    INSCRIPCIÓN
+                </h2>
+
+                <p>
+                    El cupo está limitado a 8 grupos seleccionados.
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <h3>
+                        CUOTA DE INSCRIPCIÓN
+                    </h3>
+
+                    <p>
+
+                        La cuota de inscripción es de
+
+                        <strong>
+                            $800 MXN por grupo.
+                        </strong>
+
+                    </p>
+
+                    <p>
+
+                        La cuota deberá cubrirse al momento
+                        del registro.
+
+                    </p>
+
+                </div>
+
+
+                <div class="event-info">
+
+                    <div class="info-card">
+
+                        <span>
+                            💰
+                        </span>
+
+                        <div>
+
+                            <small>
+                                CUOTA
+                            </small>
+
+                            <strong>
+                                $800 MXN
+                            </strong>
+
+                            <em>
+                                Por grupo
+                            </em>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            📅
+                        </span>
+
+                        <div>
+
+                            <small>
+                                FECHA LÍMITE
+                            </small>
+
+                            <strong>
+                                25 DE SEPTIEMBRE DE 2026
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- DATOS PARA REGISTRO -->
+    <!-- ========================= -->
+
+    <section class="section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <p class="section-kicker">
+                    TEN ESTA INFORMACIÓN A LA MANO
+                </p>
+
+                <h2>
+                    DATOS PARA EL REGISTRO
+                </h2>
+
+                <p>
+                    Para participar, cada grupo deberá enviar:
+                </p>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Nombre del grupo.
+                        </li>
+
+                        <li>
+                            Número de integrantes.
+                        </li>
+
+                        <li>
+                            Nombre y contacto del representante.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Nombre completo de los integrantes.
+                        </li>
+
+                        <li>
+                            Enlace a redes sociales del grupo,
+                            opcional.
+                        </li>
+
+                        <li>
+                            Nombre de la canción a presentar.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="cta-buttons art-register-box"
+            >
+
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdGDNLgCbqz_3FOjwu2L2L4TZP9TbRHfA9hquro3cqCpO0bxQ/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    REGISTRAR MI GRUPO
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- CONSIDERACIONES -->
+    <!-- ========================= -->
+
+    <section class="section dark-section idol-section">
+
+        <div class="container">
+
+
+            <div class="section-heading light">
+
+                <p class="section-kicker">
+                    ANTES DE PARTICIPAR
+                </p>
+
+                <h2>
+                    CONSIDERACIONES IMPORTANTES
+                </h2>
+
+            </div>
+
+
+            <div class="event-grid">
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            El cupo es limitado.
+                        </li>
+
+                        <li>
+                            La inscripción no garantiza
+                            la participación hasta ser confirmada.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="event-text">
+
+                    <ul>
+
+                        <li>
+                            Los horarios se respetarán
+                            estrictamente.
+                        </li>
+
+                        <li>
+                            Cualquier situación no prevista
+                            será resuelta por el Comité Organizador.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- MENSAJE FINAL -->
+    <!-- ========================= -->
+
+    <section class="final-cta">
+
+        <div class="container">
+
+
+            <img
+                src="assets/img/logo-nexus-fest-sin-fondo.png"
+                alt="NEXUS FEST"
+                class="final-logo"
+            >
+
+
+            <h2>
+                DEMUESTRA TU TALENTO.
+            </h2>
+
+
+            <p>
+
+                Esta es tu oportunidad de pisar
+                un escenario profesional, convivir
+                con la comunidad y formar parte
+                de la primera edición de NEXUS FEST.
+
+            </p>
+
+
+            <p>
+
+                ¡Reúne a tu grupo y sé parte
+                del IDOL GROUP BATTLE!
+
+            </p>
+
+
+            <div class="cta-buttons">
+
+
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdGDNLgCbqz_3FOjwu2L2L4TZP9TbRHfA9hquro3cqCpO0bxQ/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    QUIERO PARTICIPAR
+                </a>
+
+
+                <a
+                    href="concursos.html"
+                    class="btn btn-outline"
+                >
+                    VER OTROS CONCURSOS
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+
+        <img
+            src="assets/img/logo-nexus-fest-sin-fondo.png"
+            alt="NEXUS FEST"
+            class="footer-logo"
+        >
+
+
+        <p>
+            NEXUS FEST · Primera Edición
+        </p>
+
+
+        <p>
+            04 de octubre de 2026 ·
+            Frontera, Centla, Tabasco
+        </p>
+
+
+        <p class="footer-slogan">
+            No es un evento. Es una experiencia.
+        </p>
+
+
+        <small>
+            © 2026 NEXUS FEST.
+            Todos los derechos reservados.
+        </small>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="js/main.js"></script>
+```
+
+</body>
+
+</html>
