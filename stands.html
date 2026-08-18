@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Mapa interactivo de stands y expositores de NEXUS FEST."
+    >
+
+    <meta
+        name="theme-color"
+        content="#050509"
+    >
+
+    <title>Stands y Expositores | NEXUS FEST</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS GENERAL -->
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+
+    <!-- CSS ESPECÍFICO DE STANDS -->
+
+    <link
+        rel="stylesheet"
+        href="css/stands.css"
+    >
+
+</head>
+
+
+<body class="stands-page">
+
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <img
+                    src="assets/img/logo-nexus-fest-sin-fondo.png"
+                    alt="NEXUS FEST"
+                >
+
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                type="button"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <nav
+                class="nav-menu"
+                id="navMenu"
+            >
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="index.html">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#evento">
+                            Evento
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="concursos.html">
+                            Concursos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="stands.html"
+                            class="active"
+                        >
+                            Stands
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#acceso">
+                            Acceso
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="index.html#ubicacion">
+                            Ubicación
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================================= -->
+    <!-- CONTENIDO -->
+    <!-- ================================================= -->
+
+    <main>
+
+
+        <!-- ================================================= -->
+        <!-- HERO -->
+        <!-- ================================================= -->
+
+        <section class="stands-hero">
+
+            <div class="container">
+
+                <p class="stands-kicker">
+                    NEXUS FEST · ZONA COMERCIAL
+                </p>
+
+                <h1>
+                    STANDS Y
+                    <span>EXPOSITORES.</span>
+                </h1>
+
+                <p class="stands-intro">
+                    Explora el mapa de la zona comercial y
+                    descubre quién estará presente en cada espacio.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- MAPA -->
+        <!-- ================================================= -->
+
+        <section class="stands-map-section">
+
+            <div class="container">
+
+                <div class="stands-section-heading">
+
+                    <p>
+                        MAPA INTERACTIVO
+                    </p>
+
+                    <h2>
+                        ELIGE UN STAND
+                    </h2>
+
+                    <span>
+                        Haz clic sobre un stand para consultar
+                        la información del expositor.
+                    </span>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- MAPA -->
+                <!-- ================================================= -->
+
+                <div class="map-wrapper">
+
+
+                    <!-- CONTROLES -->
+
+                    <div class="map-controls">
+
+                        <button
+                            type="button"
+                            id="zoomOut"
+                            aria-label="Alejar mapa"
+                        >
+                            −
+                        </button>
+
+                        <button
+                            type="button"
+                            id="zoomReset"
+                            aria-label="Restablecer mapa"
+                        >
+                            ⟳
+                        </button>
+
+                        <button
+                            type="button"
+                            id="zoomIn"
+                            aria-label="Acercar mapa"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <!-- VIEWPORT -->
+
+                    <div
+                        class="map-viewport"
+                        id="mapViewport"
+                    >
+
+                        <!-- LIENZO CON DIMENSIONES REALES DEL CROQUIS -->
+
+                        <div
+                            class="map-canvas"
+                            id="mapCanvas"
+                        >
+
+                            <img
+                                src="assets/img/mapa-stands.png"
+                                alt="Croquis de la zona comercial de NEXUS FEST"
+                                class="map-image"
+                                draggable="false"
+                            >
+
+                            <div
+                                id="standLayer"
+                                class="stand-layer"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- INDICACIÓN -->
+
+                    <div class="map-hint">
+
+                        <span>
+                            🖱️
+                        </span>
+
+                        <span>
+                            Arrastra para mover el mapa ·
+                            Usa los botones para acercar o alejar
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- LEYENDA -->
+                    <!-- ================================================= -->
+
+                    <div class="map-legend">
+
+                        <div class="legend-item">
+
+                            <span class="legend-color blue"></span>
+
+                            <div>
+                                <strong>3 × 3 m</strong>
+                                <small>Stand comercial</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-color orange"></span>
+
+                            <div>
+                                <strong>3 × 3 m</strong>
+                                <small>Stand comercial</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-color green"></span>
+
+                            <div>
+                                <strong>3 × 3 m</strong>
+                                <small>Stand lateral</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-color pink"></span>
+
+                            <div>
+                                <strong>3 × 4 m</strong>
+                                <small>Stand especial</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-color photo"></span>
+
+                            <div>
+                                <strong>SET FOTO</strong>
+                                <small>No es stand</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- INFORMACIÓN DEL STAND -->
+        <!-- ================================================= -->
+
+        <section
+            class="stand-info-section"
+            id="standInfo"
+        >
+
+            <div class="container">
+
+
+                <!-- ESTADO INICIAL -->
+
+                <div
+                    class="stand-info-empty"
+                    id="standEmpty"
+                >
+
+                    <div class="empty-icon">
+                        ◈
+                    </div>
+
+                    <p class="info-kicker">
+                        INFORMACIÓN DEL EXPOSITOR
+                    </p>
+
+                    <h2>
+                        SELECCIONA UN STAND
+                    </h2>
+
+                    <p>
+                        Haz clic en cualquiera de los espacios
+                        del mapa para consultar la información
+                        correspondiente.
+                    </p>
+
+                </div>
+
+
+                <!-- PERFIL -->
+
+                <article
+                    class="stand-profile"
+                    id="standProfile"
+                >
+
+                    <!-- LOGO -->
+
+                    <div class="profile-image">
+
+                        <img
+                            id="exhibitorLogo"
+                            src=""
+                            alt="Logo del expositor"
+                        >
+
+                        <div
+                            class="profile-placeholder"
+                            id="logoPlaceholder"
+                        >
+                            NEXUS
+                        </div>
+
+                    </div>
+
+
+                    <!-- INFORMACIÓN -->
+
+                    <div class="profile-content">
+
+
+                        <div class="profile-top">
+
+                            <div>
+
+                                <span
+                                    class="profile-tag"
+                                    id="profileCategory"
+                                >
+                                    EXPOSITOR
+                                </span>
+
+                                <h2 id="profileName">
+                                    Nombre del expositor
+                                </h2>
+
+                            </div>
+
+
+                            <div class="profile-number">
+
+                                <small>
+                                    STAND
+                                </small>
+
+                                <strong id="profileNumber">
+                                    00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <p
+                            class="profile-description"
+                            id="profileDescription"
+                        >
+                            Información del expositor.
+                        </p>
+
+
+                        <div class="profile-data">
+
+                            <div>
+
+                                <span>
+                                    DIMENSIONES
+                                </span>
+
+                                <strong id="profileSize">
+                                    3 × 3 m
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    CATEGORÍA
+                                </span>
+
+                                <strong id="profileCategoryData">
+                                    Comercial
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="profile-social"
+                            id="profileSocial"
+                        ></div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- INFORMACIÓN GENERAL -->
+        <!-- ================================================= -->
+
+        <section class="stands-info-section">
+
+            <div class="container">
+
+                <div class="stands-info-heading">
+
+                    <p>
+                        ZONA COMERCIAL
+                    </p>
+
+                    <h2>
+                        CONOCE A NUESTROS EXPOSITORES
+                    </h2>
+
+                    <span>
+                        La información de cada espacio será
+                        actualizada conforme se confirmen los
+                        participantes del evento.
+                    </span>
+
+                </div>
+
+
+                <div class="commercial-features">
+
+
+                    <article>
+
+                        <div>
+                            🛍️
+                        </div>
+
+                        <h3>
+                            PRODUCTOS
+                        </h3>
+
+                        <p>
+                            Descubre productos, artículos
+                            coleccionables y propuestas
+                            de nuestros expositores.
+                        </p>
+
+                    </article>
+
+
+                    <article>
+
+                        <div>
+                            🎨
+                        </div>
+
+                        <h3>
+                            CREATIVIDAD
+                        </h3>
+
+                        <p>
+                            Encuentra artistas, ilustradores,
+                            emprendimientos y proyectos
+                            independientes.
+                        </p>
+
+                    </article>
+
+
+                    <article>
+
+                        <div>
+                            🤝
+                        </div>
+
+                        <h3>
+                            COMUNIDAD
+                        </h3>
+
+                        <p>
+                            Apoya al comercio local y conoce
+                            nuevos proyectos durante NEXUS FEST.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CTA -->
+        <!-- ================================================= -->
+
+        <section class="final-cta">
+
+            <div class="container">
+
+                <img
+                    src="assets/img/logo-nexus-fest-sin-fondo.png"
+                    alt="NEXUS FEST"
+                    class="final-logo"
+                >
+
+                <h2>
+                    NOS VEMOS EN LA ZONA COMERCIAL.
+                </h2>
+
+                <p>
+                    Explora, descubre y apoya a los
+                    expositores que serán parte de
+                    la primera edición de NEXUS FEST.
+                </p>
+
+
+                <div class="cta-buttons">
+
+                    <a
+                        href="index.html"
+                        class="btn btn-primary"
+                    >
+                        VOLVER AL INICIO
+                    </a>
+
+                    <a
+                        href="index.html#ubicacion"
+                        class="btn btn-outline"
+                    >
+                        VER UBICACIÓN
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <img
+                src="assets/img/logo-nexus-fest-sin-fondo.png"
+                alt="NEXUS FEST"
+                class="footer-logo"
+            >
+
+            <p>
+                NEXUS FEST · Primera Edición
+            </p>
+
+            <p>
+                04 de octubre de 2026 ·
+                Frontera, Centla, Tabasco
+            </p>
+
+            <p class="footer-slogan">
+                No es un evento. Es una experiencia.
+            </p>
+
+            <small>
+                © 2026 NEXUS FEST.
+                Todos los derechos reservados.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT GENERAL -->
+    <!-- ================================================= -->
+
+    <script src="js/main.js"></script>
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT DE STANDS -->
+    <!-- ================================================= -->
+
+    <script>
+
+        /* =====================================================
+           CONFIGURACIÓN DEL CROQUIS
+           ===================================================== */
+
+        const MAP_WIDTH = 1466;
+        const MAP_HEIGHT = 1079;
+
+
+        /* =====================================================
+           DATOS DE EXPOSITORES
+
+           Aquí posteriormente iremos colocando los datos reales.
+
+           Ejemplo:
+
+           1: {
+               nombre: "LETOR'S",
+               categoria: "PERSONALIZADOS",
+               descripcion: "Productos personalizados...",
+               logo: "assets/img/expositores/letors.png",
+               redes: {
+                   facebook: "https://...",
+                   instagram: "https://...",
+                   tiktok: "https://..."
+               }
+           }
+        ===================================================== */
+
+        const expositores = {
+
+            1: null,
+            2: null,
+            3: null,
+            4: null,
+            5: null,
+            6: null,
+            7: null,
+            8: null,
+            9: null,
+
+            10: null,
+            11: null,
+            12: null,
+            13: null,
+            14: null,
+            15: null,
+            16: null,
+            17: null,
+            18: null,
+
+            19: null,
+            20: null,
+
+            21: null,
+            22: null,
+            23: null,
+            24: null,
+            25: null,
+            26: null,
+            27: null,
+            28: null,
+            29: null,
+
+            30: null,
+            31: null,
+            32: null,
+
+            33: null,
+            34: null,
+            35: null,
+            36: null,
+            37: null,
+            38: null,
+            39: null,
+            40: null,
+            41: null
+
+        };
+
+
+        /* =====================================================
+           POSICIONES DEL CROQUIS
+
+           Referencia:
+           imagen original = 1466 × 1079 px
+
+           Las posiciones están expresadas en porcentaje
+           para que los hotspots permanezcan alineados
+           cuando el mapa cambie de escala.
+        ===================================================== */
+
+        const posiciones = {
+
+
+            /* =================================================
+               FILA SUPERIOR
+               33 - 41
+               ================================================= */
+
+            33: {
+                x: 10.03,
+                y: 5.84,
+                w: 5.87,
+                h: 11.12
+            },
+
+            34: {
+                x: 16.00,
+                y: 5.84,
+                w: 5.94,
+                h: 11.12
+            },
+
+            35: {
+                x: 22.02,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+            36: {
+                x: 27.97,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+            37: {
+                x: 33.97,
+                y: 5.84,
+                w: 5.87,
+                h: 11.12
+            },
+
+            38: {
+                x: 39.90,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+            39: {
+                x: 45.91,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+            40: {
+                x: 51.84,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+            41: {
+                x: 63.91,
+                y: 5.84,
+                w: 5.80,
+                h: 11.12
+            },
+
+
+            /* =================================================
+               LATERAL IZQUIERDO
+               32 - 30
+               ================================================= */
+
+            32: {
+                x: 0.95,
+                y: 21.78,
+                w: 6.00,
+                h: 8.06
+            },
+
+            31: {
+                x: 0.95,
+                y: 29.93,
+                w: 6.00,
+                h: 7.88
+            },
+
+            30: {
+                x: 0.95,
+                y: 38.09,
+                w: 6.00,
+                h: 8.06
+            },
+
+
+            /* =================================================
+               FILA CENTRAL SUPERIOR
+               21 - 29
+               ================================================= */
+
+            21: {
+                x: 13.03,
+                y: 29.75,
+                w: 5.87,
+                h: 8.25
+            },
+
+            22: {
+                x: 19.03,
+                y: 29.75,
+                w: 5.74,
+                h: 8.25
+            },
+
+            23: {
+                x: 24.97,
+                y: 29.75,
+                w: 5.80,
+                h: 8.25
+            },
+
+            24: {
+                x: 30.97,
+                y: 29.75,
+                w: 5.74,
+                h: 8.25
+            },
+
+            25: {
+                x: 36.97,
+                y: 29.75,
+                w: 5.80,
+                h: 8.25
+            },
+
+            26: {
+                x: 42.97,
+                y: 29.75,
+                w: 5.80,
+                h: 8.25
+            },
+
+            27: {
+                x: 48.84,
+                y: 29.75,
+                w: 5.80,
+                h: 8.25
+            },
+
+            28: {
+                x: 54.84,
+                y: 29.75,
+                w: 5.74,
+                h: 8.25
+            },
+
+            29: {
+                x: 60.85,
+                y: 29.75,
+                w: 5.80,
+                h: 8.25
+            },
+
+
+            /* =================================================
+               LATERAL
+               20 - 19
+               ================================================= */
+
+            20: {
+                x: 0.95,
+                y: 54.22,
+                w: 6.00,
+                h: 8.06
+            },
+
+            19: {
+                x: 0.95,
+                y: 62.47,
+                w: 6.00,
+                h: 8.06
+            },
+
+
+            /* =================================================
+               FILA CENTRAL INFERIOR
+               10 - 18
+               ================================================= */
+
+            10: {
+                x: 13.23,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            11: {
+                x: 19.17,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            12: {
+                x: 25.17,
+                y: 62.47,
+                w: 5.74,
+                h: 8.06
+            },
+
+            13: {
+                x: 31.11,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            14: {
+                x: 37.11,
+                y: 62.47,
+                w: 5.74,
+                h: 8.06
+            },
+
+            15: {
+                x: 43.07,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            16: {
+                x: 49.05,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            17: {
+                x: 55.00,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+            18: {
+                x: 60.91,
+                y: 62.47,
+                w: 5.80,
+                h: 8.06
+            },
+
+
+            /* =================================================
+               FILA INFERIOR
+               9 - 1
+               ================================================= */
+
+            9: {
+                x: 0.95,
+                y: 78.68,
+                w: 6.00,
+                h: 8.43
+            },
+
+            8: {
+                x: 7.09,
+                y: 78.68,
+                w: 5.67,
+                h: 8.43
+            },
+
+            7: {
+                x: 12.96,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            },
+
+            6: {
+                x: 18.89,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            },
+
+            5: {
+                x: 24.83,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            },
+
+            4: {
+                x: 30.76,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            },
+
+            3: {
+                x: 36.70,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            },
+
+            2: {
+                x: 42.63,
+                y: 78.68,
+                w: 5.80,
+                h: 8.43
+            },
+
+            1: {
+                x: 48.64,
+                y: 78.68,
+                w: 5.74,
+                h: 8.43
+            }
+
+        };
+
+
+        /* =====================================================
+           REFERENCIAS DEL DOM
+        ===================================================== */
+
+        const mapViewport =
+            document.getElementById("mapViewport");
+
+        const mapCanvas =
+            document.getElementById("mapCanvas");
+
+        const standLayer =
+            document.getElementById("standLayer");
+
+
+        /* =====================================================
+           CREAR HOTSPOTS
+        ===================================================== */
+
+        Object.keys(posiciones).forEach(numero => {
+
+            const posicion =
+                posiciones[numero];
+
+            const stand =
+                document.createElement("button");
+
+            stand.type = "button";
+
+            stand.className =
+                "stand-hotspot";
+
+            stand.dataset.stand =
+                numero;
+
+            stand.setAttribute(
+                "aria-label",
+                `Consultar información del stand ${numero}`
+            );
+
+
+            /* Posición */
+
+            stand.style.left =
+                `${posicion.x}%`;
+
+            stand.style.top =
+                `${posicion.y}%`;
+
+            stand.style.width =
+                `${posicion.w}%`;
+
+            stand.style.height =
+                `${posicion.h}%`;
+
+
+            /* Dimensión */
+
+            const numeroStand =
+                Number(numero);
+
+            if (
+                numeroStand >= 33 &&
+                numeroStand <= 41
+            ) {
+
+                stand.dataset.size =
+                    "3x4";
+
+            } else {
+
+                stand.dataset.size =
+                    "3x3";
+
+            }
+
+
+            /* Color */
+
+            if (
+                numeroStand >= 33 &&
+                numeroStand <= 41
+            ) {
+
+                stand.classList.add(
+                    "stand-pink"
+                );
+
+            } else if (
+                (
+                    numeroStand >= 10 &&
+                    numeroStand <= 18
+                ) ||
+                (
+                    numeroStand >= 21 &&
+                    numeroStand <= 29
+                )
+            ) {
+
+                stand.classList.add(
+                    "stand-orange"
+                );
+
+            } else if (
+                (
+                    numeroStand >= 19 &&
+                    numeroStand <= 20
+                ) ||
+                (
+                    numeroStand >= 30 &&
+                    numeroStand <= 32
+                )
+            ) {
+
+                stand.classList.add(
+                    "stand-green"
+                );
+
+            } else {
+
+                stand.classList.add(
+                    "stand-blue"
+                );
+
+            }
+
+
+            /* Número */
+
+            const numeroElemento =
+                document.createElement("span");
+
+            numeroElemento.className =
+                "stand-number";
+
+            numeroElemento.textContent =
+                numero;
+
+            stand.appendChild(
+                numeroElemento
+            );
+
+
+            /* Click */
+
+            stand.addEventListener(
+                "click",
+                () => {
+
+                    mostrarStand(
+                        Number(numero)
+                    );
+
+                }
+            );
+
+
+            standLayer.appendChild(
+                stand
+            );
+
+        });
+
+
+        /* =====================================================
+           MOSTRAR INFORMACIÓN DEL STAND
+        ===================================================== */
+
+        function mostrarStand(numero) {
+
+            const datos =
+                expositores[numero];
+
+
+            const perfil =
+                document.getElementById(
+                    "standProfile"
+                );
+
+            const vacio =
+                document.getElementById(
+                    "standEmpty"
+                );
+
+            const numeroElemento =
+                document.getElementById(
+                    "profileNumber"
+                );
+
+            const nombre =
+                document.getElementById(
+                    "profileName"
+                );
+
+            const categoria =
+                document.getElementById(
+                    "profileCategory"
+                );
+
+            const categoriaDatos =
+                document.getElementById(
+                    "profileCategoryData"
+                );
+
+            const descripcion =
+                document.getElementById(
+                    "profileDescription"
+                );
+
+            const size =
+                document.getElementById(
+                    "profileSize"
+                );
+
+            const logo =
+                document.getElementById(
+                    "exhibitorLogo"
+                );
+
+            const placeholder =
+                document.getElementById(
+                    "logoPlaceholder"
+                );
+
+            const redes =
+                document.getElementById(
+                    "profileSocial"
+                );
+
+
+            /* Número */
+
+            numeroElemento.textContent =
+                String(numero).padStart(
+                    2,
+                    "0"
+                );
+
+
+            /* Dimensiones */
+
+            if (
+                numero >= 33 &&
+                numero <= 41
+            ) {
+
+                size.textContent =
+                    "3 × 4 m";
+
+            } else {
+
+                size.textContent =
+                    "3 × 3 m";
+
+            }
+
+
+            /* =================================================
+               SIN EXPOSITOR
+            ================================================= */
+
+            if (!datos) {
+
+                nombre.textContent =
+                    "STAND DISPONIBLE";
+
+                categoria.textContent =
+                    "DISPONIBLE";
+
+                categoriaDatos.textContent =
+                    "Espacio comercial";
+
+                descripcion.textContent =
+                    "Este espacio aún se encuentra disponible o la información del expositor todavía no ha sido publicada.";
+
+                logo.style.display =
+                    "none";
+
+                placeholder.style.display =
+                    "flex";
+
+                placeholder.innerHTML = `
+                    <span>◈</span>
+                    <small>
+                        Stand ${numero}
+                    </small>
+                `;
+
+                redes.innerHTML =
+                    "";
+
+            }
+
+
+            /* =================================================
+               CON EXPOSITOR
+            ================================================= */
+
+            else {
+
+                nombre.textContent =
+                    datos.nombre;
+
+                categoria.textContent =
+                    datos.categoria ||
+                    "EXPOSITOR";
+
+                categoriaDatos.textContent =
+                    datos.categoria ||
+                    "Comercial";
+
+                descripcion.textContent =
+                    datos.descripcion ||
+                    "Información del expositor.";
+
+
+                /* Logo */
+
+                if (datos.logo) {
+
+                    logo.src =
+                        datos.logo;
+
+                    logo.alt =
+                        `Logo de ${datos.nombre}`;
+
+                    logo.style.display =
+                        "block";
+
+                    placeholder.style.display =
+                        "none";
+
+                } else {
+
+                    logo.style.display =
+                        "none";
+
+                    placeholder.style.display =
+                        "flex";
+
+                    placeholder.innerHTML = `
+                        <span>◈</span>
+                        <small>
+                            ${datos.nombre}
+                        </small>
+                    `;
+
+                }
+
+
+                /* Redes */
+
+                let redesHTML =
+                    "";
+
+
+                if (
+                    datos.redes &&
+                    datos.redes.facebook
+                ) {
+
+                    redesHTML += `
+                        <a
+                            href="${datos.redes.facebook}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Facebook
+                        </a>
+                    `;
+
+                }
+
+
+                if (
+                    datos.redes &&
+                    datos.redes.instagram
+                ) {
+
+                    redesHTML += `
+                        <a
+                            href="${datos.redes.instagram}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>
+                    `;
+
+                }
+
+
+                if (
+                    datos.redes &&
+                    datos.redes.tiktok
+                ) {
+
+                    redesHTML += `
+                        <a
+                            href="${datos.redes.tiktok}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            TikTok
+                        </a>
+                    `;
+
+                }
+
+
+                redes.innerHTML =
+                    redesHTML;
+
+            }
+
+
+            /* Mostrar */
+
+            vacio.style.display =
+                "none";
+
+            perfil.classList.add(
+                "visible"
+            );
+
+
+            /* Marcar stand seleccionado */
+
+            document
+                .querySelectorAll(
+                    ".stand-hotspot"
+                )
+                .forEach(
+                    elemento => {
+
+                        elemento.classList.remove(
+                            "selected"
+                        );
+
+                    }
+                );
+
+
+            const seleccionado =
+                document.querySelector(
+                    `.stand-hotspot[data-stand="${numero}"]`
+                );
+
+
+            if (seleccionado) {
+
+                seleccionado.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            /* Scroll */
+
+            document
+                .getElementById(
+                    "standInfo"
+                )
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+
+
+        /* =====================================================
+           SISTEMA DE ZOOM
+        ===================================================== */
+
+        let zoomFactor =
+            1;
+
+        let fitScale =
+            1;
+
+        let panX =
+            0;
+
+        let panY =
+            0;
+
+
+        function calcularEscalaInicial() {
+
+            const ancho =
+                mapViewport.clientWidth;
+
+            const alto =
+                mapViewport.clientHeight;
+
+
+            const margen =
+                30;
+
+
+            const escalaHorizontal =
+                (ancho - margen) /
+                MAP_WIDTH;
+
+            const escalaVertical =
+                (alto - margen) /
+                MAP_HEIGHT;
+
+
+            fitScale =
+                Math.min(
+                    escalaHorizontal,
+                    escalaVertical
+                );
+
+
+            /*
+             Evitamos que el mapa sea demasiado pequeño
+             en pantallas grandes.
+            */
+
+            fitScale =
+                Math.min(
+                    Math.max(
+                        fitScale,
+                        0.30
+                    ),
+                    1
+                );
+
+
+            zoomFactor =
+                1;
+
+            panX =
+                0;
+
+            panY =
+                0;
+
+
+            actualizarMapa();
+
+        }
+
+
+        function actualizarMapa() {
+
+            const escala =
+                fitScale *
+                zoomFactor;
+
+
+            mapCanvas.style.transform =
+                `translate(
+                    calc(-50% + ${panX}px),
+                    calc(-50% + ${panY}px)
+                )
+                scale(${escala})`;
+
+        }
+
+
+        /* =====================================================
+           BOTONES DE ZOOM
+        ===================================================== */
+
+        document
+            .getElementById("zoomIn")
+            .addEventListener(
+                "click",
+                () => {
+
+                    zoomFactor =
+                        Math.min(
+                            zoomFactor + 0.15,
+                            3
+                        );
+
+                    actualizarMapa();
+
+                }
+            );
+
+
+        document
+            .getElementById("zoomOut")
+            .addEventListener(
+                "click",
+                () => {
+
+                    zoomFactor =
+                        Math.max(
+                            zoomFactor - 0.15,
+                            0.35
+                        );
+
+                    actualizarMapa();
+
+                }
+            );
+
+
+        document
+            .getElementById("zoomReset")
+            .addEventListener(
+                "click",
+                () => {
+
+                    calcularEscalaInicial();
+
+                }
+            );
+
+
+        /* =====================================================
+           ZOOM CON RUEDA DEL MOUSE
+        ===================================================== */
+
+        mapViewport.addEventListener(
+            "wheel",
+            event => {
+
+                event.preventDefault();
+
+
+                if (event.deltaY < 0) {
+
+                    zoomFactor =
+                        Math.min(
+                            zoomFactor + 0.10,
+                            3
+                        );
+
+                } else {
+
+                    zoomFactor =
+                        Math.max(
+                            zoomFactor - 0.10,
+                            0.35
+                        );
+
+                }
+
+
+                actualizarMapa();
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        /* =====================================================
+           ARRASTRAR MAPA
+        ===================================================== */
+
+        let dragging =
+            false;
+
+        let startX =
+            0;
+
+        let startY =
+            0;
+
+        let initialPanX =
+            0;
+
+        let initialPanY =
+            0;
+
+
+        mapViewport.addEventListener(
+            "pointerdown",
+            event => {
+
+                /*
+                 Si se hace clic directamente
+                 sobre un stand no iniciamos el arrastre.
+                */
+
+                if (
+                    event.target.closest(
+                        ".stand-hotspot"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                dragging =
+                    true;
+
+                mapViewport.classList.add(
+                    "dragging"
+                );
+
+
+                startX =
+                    event.clientX;
+
+                startY =
+                    event.clientY;
+
+                initialPanX =
+                    panX;
+
+                initialPanY =
+                    panY;
+
+
+                mapViewport.setPointerCapture(
+                    event.pointerId
+                );
+
+            }
+        );
+
+
+        mapViewport.addEventListener(
+            "pointermove",
+            event => {
+
+                if (!dragging) {
+
+                    return;
+
+                }
+
+
+                panX =
+                    initialPanX +
+                    (
+                        event.clientX -
+                        startX
+                    );
+
+                panY =
+                    initialPanY +
+                    (
+                        event.clientY -
+                        startY
+                    );
+
+
+                actualizarMapa();
+
+            }
+        );
+
+
+        function terminarArrastre(event) {
+
+            dragging =
+                false;
+
+            mapViewport.classList.remove(
+                "dragging"
+            );
+
+
+            try {
+
+                mapViewport.releasePointerCapture(
+                    event.pointerId
+                );
+
+            } catch (error) {}
+
+        }
+
+
+        mapViewport.addEventListener(
+            "pointerup",
+            terminarArrastre
+        );
+
+        mapViewport.addEventListener(
+            "pointercancel",
+            terminarArrastre
+        );
+
+
+        /* =====================================================
+           REDIMENSIONAMIENTO
+        ===================================================== */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                calcularEscalaInicial();
+
+            }
+        );
+
+
+        /* =====================================================
+           INICIALIZACIÓN
+        ===================================================== */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                calcularEscalaInicial();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

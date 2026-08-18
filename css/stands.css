@@ -1,0 +1,2215 @@
+/* =========================================================
+   NEXUS FEST
+   STANDS.CSS
+   Mapa interactivo de stands y expositores
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+
+    --stands-bg:
+        #050509;
+
+    --stands-panel:
+        #0c0c12;
+
+    --stands-panel-2:
+        #111119;
+
+    --stands-white:
+        #ffffff;
+
+    --stands-text:
+        #f3f3f7;
+
+    --stands-muted:
+        #a7a7b2;
+
+    --stands-pink:
+        #ff007a;
+
+    --stands-pink-light:
+        #ff3c9b;
+
+    --stands-blue:
+        #3124e8;
+
+    --stands-cyan:
+        #00e5ff;
+
+    --stands-green:
+        #7ed957;
+
+    --stands-orange:
+        #ff7b22;
+
+    --stands-border:
+        rgba(255,255,255,0.10);
+
+    --stands-border-light:
+        rgba(255,255,255,0.18);
+
+    --stands-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.50);
+
+    --stands-transition:
+        0.25s ease;
+}
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+.stands-page {
+
+    min-height:
+        100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,0,122,0.08),
+            transparent 35%
+        ),
+        var(--stands-bg);
+
+    color:
+        var(--stands-text);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.stands-hero {
+
+    position:
+        relative;
+
+    padding:
+        170px 20px 80px;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+}
+
+
+.stands-hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        600px;
+
+    height:
+        600px;
+
+    top:
+        -350px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,122,0.17),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+.stands-kicker {
+
+    position:
+        relative;
+
+    margin:
+        0 0 15px;
+
+    color:
+        var(--stands-cyan);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.25em;
+
+}
+
+
+.stands-hero h1 {
+
+    position:
+        relative;
+
+    margin:
+        0;
+
+    color:
+        var(--stands-white);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.3rem,
+            6vw,
+            5rem
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        0.03em;
+
+}
+
+
+.stands-hero h1 span {
+
+    display:
+        block;
+
+    color:
+        var(--stands-pink);
+
+    text-shadow:
+        0 0 25px
+        rgba(255,0,122,0.30);
+
+}
+
+
+.stands-intro {
+
+    position:
+        relative;
+
+    max-width:
+        760px;
+
+    margin:
+        25px auto 0;
+
+    color:
+        #c5c5cf;
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   SECCIÓN MAPA
+   ========================================================= */
+
+.stands-map-section {
+
+    padding:
+        35px 20px 100px;
+
+}
+
+
+.stands-section-heading {
+
+    max-width:
+        850px;
+
+    margin:
+        0 auto 35px;
+
+    text-align:
+        center;
+
+}
+
+
+.stands-section-heading p {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--stands-cyan);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.20em;
+
+}
+
+
+.stands-section-heading h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--stands-white);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.7rem,
+            4vw,
+            2.8rem
+        );
+
+}
+
+
+.stands-section-heading span {
+
+    display:
+        block;
+
+    margin-top:
+        14px;
+
+    color:
+        var(--stands-muted);
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR MAPA
+   ========================================================= */
+
+.map-wrapper {
+
+    width:
+        100%;
+
+    max-width:
+        1450px;
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   CONTROLES
+   ========================================================= */
+
+.map-controls {
+
+    display:
+        flex;
+
+    justify-content:
+        flex-end;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.map-controls button {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    border:
+        1px solid
+        var(--stands-border-light);
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color:
+        var(--stands-white);
+
+    font-size:
+        1.35rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        background var(--stands-transition),
+        border-color var(--stands-transition),
+        transform var(--stands-transition);
+
+}
+
+
+.map-controls button:hover {
+
+    background:
+        rgba(255,0,122,0.15);
+
+    border-color:
+        rgba(255,0,122,0.55);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.map-controls button:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   VIEWPORT
+   ========================================================= */
+
+.map-viewport {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        min(
+            78vh,
+            850px
+        );
+
+    min-height:
+        500px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.13);
+
+    border-radius:
+        20px;
+
+    background:
+        #000000;
+
+    box-shadow:
+        var(--stands-shadow);
+
+    cursor:
+        grab;
+
+    user-select:
+        none;
+
+    touch-action:
+        none;
+
+}
+
+
+/* Mientras se arrastra */
+
+.map-viewport.dragging {
+
+    cursor:
+        grabbing;
+
+}
+
+
+/* =========================================================
+   LIENZO REAL DEL CROQUIS
+   ========================================================= */
+
+.map-canvas {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    width:
+        1466px;
+
+    height:
+        1079px;
+
+    transform-origin:
+        center center;
+
+    will-change:
+        transform;
+
+    user-select:
+        none;
+
+}
+
+
+/* =========================================================
+   IMAGEN DEL CROQUIS
+   ========================================================= */
+
+.map-image {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    display:
+        block;
+
+    width:
+        1466px;
+
+    height:
+        1079px;
+
+    max-width:
+        none;
+
+    user-select:
+        none;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   CAPA DE STANDS
+   ========================================================= */
+
+.stand-layer {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        1466px;
+
+    height:
+        1079px;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   HOTSPOTS
+   ========================================================= */
+
+.stand-hotspot {
+
+    position:
+        absolute;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    padding:
+        0;
+
+    margin:
+        0;
+
+    border:
+        2px solid
+        rgba(255,255,255,0.25);
+
+    border-radius:
+        3px;
+
+    pointer-events:
+        auto;
+
+    cursor:
+        pointer;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-weight:
+        900;
+
+    text-align:
+        center;
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+    transition:
+        transform 0.16s ease,
+        filter 0.16s ease,
+        box-shadow 0.16s ease;
+
+    z-index:
+        5;
+
+}
+
+
+/* =========================================================
+   NÚMERO
+   ========================================================= */
+
+.stand-number {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        clamp(
+            0.85rem,
+            1.5vw,
+            1.35rem
+        );
+
+    font-weight:
+        900;
+
+    line-height:
+        1;
+
+    text-shadow:
+        0 2px 3px
+        rgba(0,0,0,0.55),
+
+        0 0 8px
+        rgba(0,0,0,0.35);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.stand-hotspot:hover {
+
+    z-index:
+        30;
+
+    transform:
+        scale(1.07);
+
+    filter:
+        brightness(1.18);
+
+    box-shadow:
+        0 0 22px
+        rgba(255,255,255,0.30);
+
+}
+
+
+/* =========================================================
+   SELECCIONADO
+   ========================================================= */
+
+.stand-hotspot.selected {
+
+    z-index:
+        40;
+
+    transform:
+        scale(1.10);
+
+    filter:
+        brightness(1.20)
+        saturate(1.15);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(255,255,255,0.95),
+
+        0 0 28px
+        rgba(255,0,122,0.85);
+
+}
+
+
+/* =========================================================
+   COLORES
+   ========================================================= */
+
+.stand-pink {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff0080,
+            #d90068
+        );
+
+}
+
+
+.stand-orange {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8b2b,
+            #e85c0c
+        );
+
+}
+
+
+.stand-green {
+
+    background:
+        linear-gradient(
+            135deg,
+            #8de75d,
+            #5ebf32
+        );
+
+}
+
+
+.stand-blue {
+
+    background:
+        linear-gradient(
+            135deg,
+            #392cff,
+            #2114b8
+        );
+
+}
+
+
+/* =========================================================
+   INDICACIÓN
+   ========================================================= */
+
+.map-hint {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin:
+        15px 0;
+
+    color:
+        #8e8e9b;
+
+    font-size:
+        0.75rem;
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   LEYENDA
+   ========================================================= */
+
+.map-legend {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        15px 25px;
+
+    padding:
+        18px 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+}
+
+
+.legend-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    color:
+        #bcbcc7;
+
+    font-size:
+        0.75rem;
+
+}
+
+
+.legend-item div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        2px;
+
+}
+
+
+.legend-item strong {
+
+    color:
+        #ffffff;
+
+    font-weight:
+        800;
+
+}
+
+
+.legend-item small {
+
+    color:
+        #8f8f9c;
+
+    font-size:
+        0.65rem;
+
+}
+
+
+.legend-color {
+
+    width:
+        20px;
+
+    height:
+        20px;
+
+    flex:
+        0 0 20px;
+
+    border-radius:
+        4px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+}
+
+
+.legend-color.blue {
+
+    background:
+        #392cff;
+
+}
+
+
+.legend-color.orange {
+
+    background:
+        #ff7b22;
+
+}
+
+
+.legend-color.green {
+
+    background:
+        #7ed957;
+
+}
+
+
+.legend-color.pink {
+
+    background:
+        #ff007a;
+
+}
+
+
+.legend-color.photo {
+
+    background:
+        #ffffff;
+
+    border-color:
+        #999999;
+
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL STAND
+   ========================================================= */
+
+.stand-info-section {
+
+    padding:
+        90px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #08080e,
+            #050509
+        );
+
+}
+
+
+.stand-info-empty {
+
+    max-width:
+        850px;
+
+    margin:
+        0 auto;
+
+    padding:
+        55px 30px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+}
+
+
+.empty-icon {
+
+    margin-bottom:
+        15px;
+
+    color:
+        var(--stands-pink);
+
+    font-size:
+        2.8rem;
+
+}
+
+
+.info-kicker {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--stands-cyan);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.18em;
+
+}
+
+
+.stand-info-empty h2 {
+
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+}
+
+
+.stand-info-empty > p:last-child {
+
+    max-width:
+        650px;
+
+    margin:
+        15px auto 0;
+
+    color:
+        #a5a5b0;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   PERFIL
+   ========================================================= */
+
+.stand-profile {
+
+    position:
+        relative;
+
+    display:
+        none;
+
+    width:
+        100%;
+
+    max-width:
+        1100px;
+
+    margin:
+        0 auto;
+
+    padding:
+        35px;
+
+    grid-template-columns:
+        280px 1fr;
+
+    gap:
+        40px;
+
+    border:
+        1px solid
+        var(--stands-border);
+
+    border-radius:
+        23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.055),
+            rgba(255,255,255,0.018)
+        );
+
+    box-shadow:
+        var(--stands-shadow);
+
+    overflow:
+        hidden;
+
+}
+
+
+.stand-profile.visible {
+
+    display:
+        grid;
+
+    animation:
+        standProfileIn
+        0.35s ease both;
+
+}
+
+
+@keyframes standProfileIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   DECORACIÓN
+   ========================================================= */
+
+.stand-profile::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        300px;
+
+    height:
+        300px;
+
+    top:
+        -170px;
+
+    right:
+        -100px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,0,122,0.15),
+            transparent 70%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.profile-image {
+
+    position:
+        relative;
+
+    min-height:
+        280px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    padding:
+        25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(0,0,0,0.35);
+
+    overflow:
+        hidden;
+
+}
+
+
+.profile-image img {
+
+    display:
+        none;
+
+    width:
+        100%;
+
+    max-width:
+        230px;
+
+    max-height:
+        230px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        12px;
+
+}
+
+
+.profile-placeholder {
+
+    width:
+        100%;
+
+    min-height:
+        210px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+    color:
+        #777784;
+
+    text-align:
+        center;
+
+}
+
+
+.profile-placeholder span {
+
+    color:
+        rgba(255,0,122,0.65);
+
+    font-size:
+        3rem;
+
+}
+
+
+.profile-placeholder small {
+
+    color:
+        #858592;
+
+    font-size:
+        0.7rem;
+
+    letter-spacing:
+        0.10em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   CONTENIDO PERFIL
+   ========================================================= */
+
+.profile-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+.profile-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    gap:
+        25px;
+
+}
+
+
+.profile-tag {
+
+    display:
+        inline-flex;
+
+    padding:
+        7px 12px;
+
+    margin-bottom:
+        12px;
+
+    border:
+        1px solid
+        rgba(0,229,255,0.35);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--stands-cyan);
+
+    background:
+        rgba(0,229,255,0.07);
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.profile-top h2 {
+
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.6rem,
+            3vw,
+            2.6rem
+        );
+
+    line-height:
+        1.15;
+
+}
+
+
+.profile-number {
+
+    flex:
+        0 0 auto;
+
+    text-align:
+        right;
+
+}
+
+
+.profile-number small {
+
+    display:
+        block;
+
+    color:
+        #777783;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+}
+
+
+.profile-number strong {
+
+    display:
+        block;
+
+    margin-top:
+        3px;
+
+    color:
+        var(--stands-pink);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        2rem;
+
+}
+
+
+.profile-description {
+
+    margin:
+        25px 0 0;
+
+    color:
+        #c2c2cc;
+
+    font-size:
+        0.98rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+/* =========================================================
+   DATOS
+   ========================================================= */
+
+.profile-data {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap:
+        15px;
+
+    margin-top:
+        25px;
+
+}
+
+
+.profile-data > div {
+
+    padding:
+        16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+}
+
+
+.profile-data span {
+
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+    color:
+        #858591;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.10em;
+
+}
+
+
+.profile-data strong {
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.9rem;
+
+}
+
+
+/* =========================================================
+   REDES
+   ========================================================= */
+
+.profile-social {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        22px;
+
+}
+
+
+.profile-social a {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        10px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    color:
+        #eeeeF2;
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    transition:
+        background var(--stands-transition),
+        border-color var(--stands-transition),
+        transform var(--stands-transition);
+
+}
+
+
+.profile-social a:hover {
+
+    background:
+        rgba(255,0,122,0.10);
+
+    border-color:
+        rgba(255,0,122,0.45);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================================================
+   INFORMACIÓN GENERAL
+   ========================================================= */
+
+.stands-info-section {
+
+    padding:
+        90px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #08080e,
+            #050509
+        );
+
+}
+
+
+.stands-info-heading {
+
+    max-width:
+        800px;
+
+    margin:
+        0 auto 40px;
+
+    text-align:
+        center;
+
+}
+
+
+.stands-info-heading p {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--stands-cyan);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.20em;
+
+}
+
+
+.stands-info-heading h2 {
+
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.6rem,
+            4vw,
+            2.7rem
+        );
+
+}
+
+
+.stands-info-heading span {
+
+    display:
+        block;
+
+    margin-top:
+        15px;
+
+    color:
+        #a7a7b2;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.commercial-features {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap:
+        20px;
+
+    max-width:
+        1150px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.commercial-features article {
+
+    padding:
+        30px;
+
+    border:
+        1px solid
+        var(--stands-border);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    transition:
+        transform var(--stands-transition),
+        border-color var(--stands-transition),
+        background var(--stands-transition);
+
+}
+
+
+.commercial-features article:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255,0,122,0.35);
+
+    background:
+        rgba(255,0,122,0.045);
+
+}
+
+
+.commercial-features article > div {
+
+    font-size:
+        2rem;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.commercial-features h3 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1rem;
+
+}
+
+
+.commercial-features p {
+
+    margin:
+        0;
+
+    color:
+        #a7a7b2;
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+.stand-hotspot:focus-visible,
+.map-controls button:focus-visible,
+.profile-social a:focus-visible {
+
+    outline:
+        3px solid
+        var(--stands-cyan);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .stands-hero {
+
+        padding:
+            145px 20px 65px;
+
+    }
+
+
+    .map-viewport {
+
+        height:
+            70vh;
+
+        min-height:
+            450px;
+
+    }
+
+
+    .stand-profile {
+
+        grid-template-columns:
+            220px 1fr;
+
+        gap:
+            25px;
+
+        padding:
+            25px;
+
+    }
+
+
+    .profile-image {
+
+        min-height:
+            220px;
+
+    }
+
+
+    .commercial-features {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MÓVIL
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .stands-hero {
+
+        padding:
+            125px 16px 55px;
+
+    }
+
+
+    .stands-intro {
+
+        font-size:
+            0.88rem;
+
+    }
+
+
+    .stands-map-section {
+
+        padding:
+            25px 12px 70px;
+
+    }
+
+
+    .stands-section-heading {
+
+        margin-bottom:
+            25px;
+
+    }
+
+
+    .map-controls {
+
+        justify-content:
+            center;
+
+    }
+
+
+    .map-controls button {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+
+    .map-viewport {
+
+        height:
+            62vh;
+
+        min-height:
+            380px;
+
+        border-radius:
+            15px;
+
+    }
+
+
+    .stand-number {
+
+        font-size:
+            0.72rem;
+
+    }
+
+
+    .map-legend {
+
+        justify-content:
+            flex-start;
+
+        gap:
+            13px;
+
+    }
+
+
+    .legend-item {
+
+        font-size:
+            0.68rem;
+
+    }
+
+
+    .stand-profile {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            20px;
+
+        gap:
+            20px;
+
+    }
+
+
+    .profile-image {
+
+        min-height:
+            220px;
+
+        max-width:
+            300px;
+
+        width:
+            100%;
+
+        margin:
+            0 auto;
+
+    }
+
+
+    .profile-top {
+
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+
+    }
+
+
+    .profile-number {
+
+        text-align:
+            left;
+
+    }
+
+
+    .profile-data {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .commercial-features {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .stands-info-section {
+
+        padding:
+            65px 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .stands-hero h1 {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    .stands-hero {
+
+        padding-top:
+            115px;
+
+    }
+
+
+    .map-viewport {
+
+        height:
+            58vh;
+
+        min-height:
+            330px;
+
+    }
+
+
+    .stand-profile {
+
+        padding:
+            17px;
+
+    }
+
+
+    .profile-top h2 {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .profile-tag {
+
+        font-size:
+            0.6rem;
+
+    }
+
+
+    .map-hint {
+
+        font-size:
+            0.65rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
