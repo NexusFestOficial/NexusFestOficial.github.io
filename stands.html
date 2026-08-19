@@ -755,7 +755,17 @@
             2: null,
             3: null,
             4: null,
-            5: null,
+            5: {
+               nombre: "PASTELERIA MARISOL",
+               categoria: "POSTRES Y PASTELES",
+               descripcion: "🍰 Pastelería artesanal especializada en postres caseros, con una deliciosa variedad de pasteles, cheesecakes, chocoflanes, brownies y creaciones especiales. Sabores para todos los gustos, elaborados con dedicación para acompañar tus momentos más especiales. ✨",
+               logo: "assets/img/expositores/marisol.png",
+               redes: {
+                   facebook: "https://www.facebook.com/share/1BTPCKhAAN/?mibextid=wwXIfr",
+                   whatsapp: "https://wa.me/52⁠9131006921",
+                   
+               }
+           },
             6: null,
             7: null,
             8: null,
@@ -764,12 +774,41 @@
             10: null,
             11: null,
             12: null,
-            13: null,
-            14: null,
+            13: {
+               nombre: "PLAY ZONE",
+               categoria: "MULTISERVICIOS",
+               descripcion: "ºFiguras y accesorios coleccionables, ºRenta de Consolas de videojuegos, ºÁrea Recreativa (Juegos de mesa, TCG, juegos de estrategia, etc.), ºServicio de Impresión 3D, ºImpresiones, Escaneos, Tramites y Servicios, ºDescarga e instalación de juegos, programas, películas, series y mucho más...",
+               logo: "assets/img/expositores/playzone.jpg",
+               redes: {
+                   facebook: "https://www.facebook.com/PlayZoneTabasco",
+                   whatsapp: "https://wa.me/529934375661",
+            
+               }
+           },
+            14: {
+               nombre: "ROSAS ETERNAS CHRIS LEON",
+               categoria: "PERSONALIZADOS",
+               descripcion: "Ramos personalizados, 🌹 Rosas eternas en cualquier temporada, 🍫 Puedes agregar: golosinas, peluches, carritos, billetes o lo que te imagines, ✨ ROSAS ETERNAS TODO EL AÑO ✨",
+               logo: "assets/img/expositores/chris.png",
+               redes: {
+                   facebook: "https://www.facebook.com/profile.php?id=61563438663625",
+                   whatsapp: "https://wa.me/529131104767",
+                   
+               }
+           },
             15: null,
             16: null,
             17: null,
-            18: null,
+            18: {
+               nombre: "GENSHIKEN TABASCO",
+               categoria: "ANIME & COLECCIONABLES",
+               descripcion: "Variedad de productos para los amantes del anime y la cultura geek, entre ellos, 🎎 Figuras de colección, 🔑 Llaveros, 📿 Collares, 📌 Pines, 🖼️ Pósters en tela y papel",
+               logo: "assets/img/expositores/genshiken.png",
+               redes: {
+                   facebook: "https://www.facebook.com/GenshikenTabasco",
+                  
+               }
+           },
 
             19: null,
             20: null,
@@ -790,12 +829,31 @@
 
             33: null,
             34: null,
-            35: null,
+            35: {
+               nombre: "TERNUCREAM",
+               categoria: "PALETERIA",
+               descripcion: "Paletas de hielo con mucho amor, creatividad y un toque de ternura. Cada Ternurín está hecho con ingredientes deliciosos, colores divertidos y sabores que te harán sonreír desde el primer mordisco. Nos encanta experimentar, consentirte y traerte combinaciones únicas como nuestras famosas paletas con panditas, frutas , y más.",
+               logo: "assets/img/expositores/ternucream.jpg",
+               redes: {
+                   facebook: "https://www.facebook.com/share/1C4Ck1bj7P/",
+                   instagram: "https://www.instagram.com/reel/Db6bus1KL92/?igsh=ODZlN2loMzdreXBk",
+                   tiktok: "https://www.tiktok.com/@ternucreamfrontera?_r=1&_t=ZS-98wrH5ccaLV"
+               }
+           },
             36: null,
             37: null,
             38: null,
             39: null,
-            40: null,
+            40: {
+               nombre: "TIENDA OFICIAL X LETOR'S",
+               categoria: "TIENDA DE MERCH OFICIAL",
+               descripcion: "Encuentra productos personalizados y artículos exclusivos de nuestra primera edición, ideales para llevar contigo un recuerdo de esta experiencia",
+               logo: "assets/img/expositores/letors.png",
+               redes: {
+                   facebook: "https://www.facebook.com/share/189j71Wvq7/",
+                   
+               }
+           },
             41: null
 
         };
@@ -1547,6 +1605,24 @@
                     `;
 
                 }
+
+ if (
+                    datos.redes &&
+                    datos.redes.whatsapp
+                ) {
+
+                    redesHTML += `
+                        <a
+                            href="${datos.redes.whatsapp}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Whatsapp
+                        </a>
+                    `;
+
+                }
+
 
 
                 redes.innerHTML =
