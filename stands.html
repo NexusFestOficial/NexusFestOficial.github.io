@@ -1,366 +1,609 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="Mapa interactivo de stands y expositores de NEXUS FEST."
-    >
+<meta
+    name="description"
+    content="Mapa interactivo de stands y expositores de NEXUS FEST."
+>
 
-    <meta
-        name="theme-color"
-        content="#050509"
-    >
+<meta
+    name="theme-color"
+    content="#050509"
+>
 
-    <title>Stands y Expositores | NEXUS FEST</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+<title>Stands y Expositores | NEXUS FEST</title>
 
 
-    <!-- CSS GENERAL -->
+<!-- GOOGLE FONTS -->
 
-    <link
-        rel="stylesheet"
-        href="css/styles.css"
-    >
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
-    <!-- CSS ESPECÍFICO DE STANDS -->
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <link
-        rel="stylesheet"
-        href="css/stands.css"
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<!-- CSS GENERAL -->
+
+<link
+    rel="stylesheet"
+    href="css/styles.css"
+>
+
+<!-- CSS ESPECÍFICO DE STANDS -->
+
+<link
+    rel="stylesheet"
+    href="css/stands.css"
+>
+
+
+<!-- ================================================= -->
+<!-- ESTILOS ADICIONALES DE EXPOSITORES -->
+<!-- ================================================= -->
+
+<style>
+
+    /*
+     * STAND APARTADO
+     *
+     * Los stands libres conservan sus colores originales.
+     * Solamente los que tienen información en "expositores"
+     * reciben esta clase.
+     */
+
+    .stand-hotspot.stand-occupied {
+
+        background:
+            rgba(220, 38, 38, 0.78) !important;
+
+        border-color:
+            rgba(255, 255, 255, 0.95) !important;
+
+        box-shadow:
+            0 0 0 2px rgba(255,255,255,0.35),
+            0 0 18px rgba(220,38,38,0.65);
+
+    }
+
+
+    .stand-hotspot.stand-occupied:hover {
+
+        background:
+            rgba(185, 28, 28, 0.90) !important;
+
+        transform:
+            scale(1.025);
+
+    }
+
+
+    .stand-hotspot.stand-occupied.selected {
+
+        background:
+            rgba(153, 27, 27, 0.95) !important;
+
+        box-shadow:
+            0 0 0 3px #ffffff,
+            0 0 25px rgba(220,38,38,0.9);
+
+    }
+
+
+    /*
+     * GALERÍA
+     */
+
+    .profile-gallery {
+
+        margin-top:
+            28px;
+
+        width:
+            100%;
+
+    }
+
+
+    .profile-gallery-title {
+
+        display:
+            block;
+
+        margin-bottom:
+            14px;
+
+        font-family:
+            "Orbitron",
+            sans-serif;
+
+        font-size:
+            0.85rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            0.08em;
+
+        text-transform:
+            uppercase;
+
+        opacity:
+            0.85;
+
+    }
+
+
+    .profile-gallery-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(auto-fill, minmax(150px, 1fr));
+
+        gap:
+            12px;
+
+    }
+
+
+    .profile-gallery-item {
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        aspect-ratio:
+            1 / 1;
+
+        overflow:
+            hidden;
+
+        border-radius:
+            12px;
+
+        background:
+            #111;
+
+        border:
+            1px solid rgba(255,255,255,0.12);
+
+    }
+
+
+    .profile-gallery-item img {
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+
+        display:
+            block;
+
+        transition:
+            transform 0.35s ease;
+
+    }
+
+
+    .profile-gallery-item:hover img {
+
+        transform:
+            scale(1.06);
+
+    }
+
+
+    /*
+     * INDICADOR VISUAL DEL ESTADO
+     */
+
+    .stand-status {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            7px;
+
+        margin-top:
+            8px;
+
+        font-size:
+            0.72rem;
+
+        font-weight:
+            800;
+
+        letter-spacing:
+            0.08em;
+
+        text-transform:
+            uppercase;
+
+    }
+
+
+    .stand-status::before {
+
+        content:
+            "";
+
+        width:
+            8px;
+
+        height:
+            8px;
+
+        border-radius:
+            50%;
+
+        background:
+            currentColor;
+
+    }
+
+
+    .stand-status.occupied {
+
+        color:
+            #ef4444;
+
+    }
+
+</style>
+```
 
 </head>
 
-
 <body class="stands-page">
 
+```
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="assets/img/logo-nexus-fest-sin-fondo.png"
+                alt="NEXUS FEST"
+            >
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            type="button"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <nav
+            class="nav-menu"
+            id="navMenu"
+        >
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#evento">
+                        Evento
+                    </a>
+                </li>
+
+                <li>
+                    <a href="concursos.html">
+                        Concursos
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="stands.html"
+                        class="active"
+                    >
+                        Stands
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#acceso">
+                        Acceso
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#ubicacion">
+                        Ubicación
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- CONTENIDO -->
+<!-- ================================================= -->
+
+<main>
+
 
     <!-- ================================================= -->
-    <!-- HEADER -->
+    <!-- HERO -->
     <!-- ================================================= -->
 
-    <header class="header">
+    <section class="stands-hero">
 
-        <div class="container nav">
+        <div class="container">
 
-            <a
-                href="index.html"
-                class="logo"
-            >
+            <p class="stands-kicker">
+                NEXUS FEST · ZONA COMERCIAL
+            </p>
 
-                <img
-                    src="assets/img/logo-nexus-fest-sin-fondo.png"
-                    alt="NEXUS FEST"
-                >
+            <h1>
+                STANDS Y
+                <span>EXPOSITORES.</span>
+            </h1>
 
-            </a>
-
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                type="button"
-            >
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
-
-            <nav
-                class="nav-menu"
-                id="navMenu"
-            >
-
-                <ul class="nav-links">
-
-                    <li>
-                        <a href="index.html">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="index.html#evento">
-                            Evento
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="concursos.html">
-                            Concursos
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="stands.html"
-                            class="active"
-                        >
-                            Stands
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="index.html#acceso">
-                            Acceso
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="index.html#ubicacion">
-                            Ubicación
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
+            <p class="stands-intro">
+                Explora el mapa de la zona comercial y
+                descubre quién estará presente en cada espacio.
+            </p>
 
         </div>
 
-    </header>
+    </section>
 
 
     <!-- ================================================= -->
-    <!-- CONTENIDO -->
+    <!-- MAPA -->
     <!-- ================================================= -->
 
-    <main>
+    <section class="stands-map-section">
 
+        <div class="container">
 
-        <!-- ================================================= -->
-        <!-- HERO -->
-        <!-- ================================================= -->
+            <div class="stands-section-heading">
 
-        <section class="stands-hero">
-
-            <div class="container">
-
-                <p class="stands-kicker">
-                    NEXUS FEST · ZONA COMERCIAL
+                <p>
+                    MAPA INTERACTIVO
                 </p>
 
-                <h1>
-                    STANDS Y
-                    <span>EXPOSITORES.</span>
-                </h1>
+                <h2>
+                    ELIGE UN STAND
+                </h2>
 
-                <p class="stands-intro">
-                    Explora el mapa de la zona comercial y
-                    descubre quién estará presente en cada espacio.
-                </p>
+                <span>
+                    Haz clic sobre un stand para consultar
+                    la información del expositor.
+                </span>
 
             </div>
 
-        </section>
+
+            <div class="map-wrapper">
 
 
-        <!-- ================================================= -->
-        <!-- MAPA -->
-        <!-- ================================================= -->
+                <!-- CONTROLES -->
 
-        <section class="stands-map-section">
+                <div class="map-controls">
 
-            <div class="container">
+                    <button
+                        type="button"
+                        id="zoomOut"
+                        aria-label="Alejar mapa"
+                    >
+                        −
+                    </button>
 
-                <div class="stands-section-heading">
+                    <button
+                        type="button"
+                        id="zoomReset"
+                        aria-label="Restablecer mapa"
+                    >
+                        ⟳
+                    </button>
 
-                    <p>
-                        MAPA INTERACTIVO
-                    </p>
+                    <button
+                        type="button"
+                        id="zoomIn"
+                        aria-label="Acercar mapa"
+                    >
+                        +
+                    </button>
 
-                    <h2>
-                        ELIGE UN STAND
-                    </h2>
+                </div>
+
+
+                <!-- VIEWPORT -->
+
+                <div
+                    class="map-viewport"
+                    id="mapViewport"
+                >
+
+                    <div
+                        class="map-canvas"
+                        id="mapCanvas"
+                    >
+
+                        <img
+                            src="assets/img/mapa-stands.png"
+                            alt="Croquis de la zona comercial de NEXUS FEST"
+                            class="map-image"
+                            draggable="false"
+                        >
+
+                        <div
+                            id="standLayer"
+                            class="stand-layer"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INDICACIÓN -->
+
+                <div class="map-hint">
 
                     <span>
-                        Haz clic sobre un stand para consultar
-                        la información del expositor.
+                        🖱️
+                    </span>
+
+                    <span>
+                        Arrastra para mover el mapa ·
+                        Usa los botones para acercar o alejar
                     </span>
 
                 </div>
 
 
                 <!-- ================================================= -->
-                <!-- MAPA -->
+                <!-- LEYENDA -->
                 <!-- ================================================= -->
 
-                <div class="map-wrapper">
+                <div class="map-legend">
 
+                    <div class="legend-item">
 
-                    <!-- CONTROLES -->
+                        <span class="legend-color blue"></span>
 
-                    <div class="map-controls">
-
-                        <button
-                            type="button"
-                            id="zoomOut"
-                            aria-label="Alejar mapa"
-                        >
-                            −
-                        </button>
-
-                        <button
-                            type="button"
-                            id="zoomReset"
-                            aria-label="Restablecer mapa"
-                        >
-                            ⟳
-                        </button>
-
-                        <button
-                            type="button"
-                            id="zoomIn"
-                            aria-label="Acercar mapa"
-                        >
-                            +
-                        </button>
-
-                    </div>
-
-
-                    <!-- VIEWPORT -->
-
-                    <div
-                        class="map-viewport"
-                        id="mapViewport"
-                    >
-
-                        <!-- LIENZO CON DIMENSIONES REALES DEL CROQUIS -->
-
-                        <div
-                            class="map-canvas"
-                            id="mapCanvas"
-                        >
-
-                            <img
-                                src="assets/img/mapa-stands.png"
-                                alt="Croquis de la zona comercial de NEXUS FEST"
-                                class="map-image"
-                                draggable="false"
-                            >
-
-                            <div
-                                id="standLayer"
-                                class="stand-layer"
-                            ></div>
-
+                        <div>
+                            <strong>3 × 3 m</strong>
+                            <small>Stand comercial</small>
                         </div>
 
                     </div>
 
 
-                    <!-- INDICACIÓN -->
+                    <div class="legend-item">
 
-                    <div class="map-hint">
+                        <span class="legend-color orange"></span>
 
-                        <span>
-                            🖱️
-                        </span>
-
-                        <span>
-                            Arrastra para mover el mapa ·
-                            Usa los botones para acercar o alejar
-                        </span>
+                        <div>
+                            <strong>3 × 3 m</strong>
+                            <small>Stand comercial</small>
+                        </div>
 
                     </div>
 
 
-                    <!-- ================================================= -->
-                    <!-- LEYENDA -->
-                    <!-- ================================================= -->
+                    <div class="legend-item">
 
-                    <div class="map-legend">
+                        <span class="legend-color green"></span>
 
-                        <div class="legend-item">
-
-                            <span class="legend-color blue"></span>
-
-                            <div>
-                                <strong>3 × 3 m</strong>
-                                <small>Stand comercial</small>
-                            </div>
-
+                        <div>
+                            <strong>3 × 3 m</strong>
+                            <small>Stand lateral</small>
                         </div>
 
+                    </div>
 
-                        <div class="legend-item">
 
-                            <span class="legend-color orange"></span>
+                    <div class="legend-item">
 
-                            <div>
-                                <strong>3 × 3 m</strong>
-                                <small>Stand comercial</small>
-                            </div>
+                        <span class="legend-color pink"></span>
 
+                        <div>
+                            <strong>3 × 4 m</strong>
+                            <small>Stand especial</small>
                         </div>
 
+                    </div>
 
-                        <div class="legend-item">
 
-                            <span class="legend-color green"></span>
+                    <!-- NUEVO -->
+                    <!-- Único color adicional: APARTADO -->
 
-                            <div>
-                                <strong>3 × 3 m</strong>
-                                <small>Stand lateral</small>
-                            </div>
+                    <div class="legend-item">
 
+                        <span
+                            class="legend-color"
+                            style="
+                                background:#dc2626;
+                                box-shadow:0 0 8px rgba(220,38,38,.55);
+                            "
+                        ></span>
+
+                        <div>
+                            <strong>APARTADO</strong>
+                            <small>Expositor confirmado</small>
                         </div>
 
-
-                        <div class="legend-item">
-
-                            <span class="legend-color pink"></span>
-
-                            <div>
-                                <strong>3 × 4 m</strong>
-                                <small>Stand especial</small>
-                            </div>
-
-                        </div>
+                    </div>
 
 
-                        <div class="legend-item">
+                    <div class="legend-item">
 
-                            <span class="legend-color photo"></span>
+                        <span class="legend-color photo"></span>
 
-                            <div>
-                                <strong>SET FOTO</strong>
-                                <small>No es stand</small>
-                            </div>
-
+                        <div>
+                            <strong>SET FOTO</strong>
+                            <small>No es stand</small>
                         </div>
 
                     </div>
@@ -369,1135 +612,1358 @@
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- ================================================= -->
-        <!-- INFORMACIÓN DEL STAND -->
-        <!-- ================================================= -->
+    <!-- ================================================= -->
+    <!-- INFORMACIÓN DEL STAND -->
+    <!-- ================================================= -->
 
-        <section
-            class="stand-info-section"
-            id="standInfo"
-        >
+    <section
+        class="stand-info-section"
+        id="standInfo"
+    >
 
-            <div class="container">
+        <div class="container">
 
 
-                <!-- ESTADO INICIAL -->
+            <!-- ESTADO INICIAL -->
 
-                <div
-                    class="stand-info-empty"
-                    id="standEmpty"
-                >
+            <div
+                class="stand-info-empty"
+                id="standEmpty"
+            >
 
-                    <div class="empty-icon">
-                        ◈
+                <div class="empty-icon">
+                    ◈
+                </div>
+
+                <p class="info-kicker">
+                    INFORMACIÓN DEL EXPOSITOR
+                </p>
+
+                <h2>
+                    SELECCIONA UN STAND
+                </h2>
+
+                <p>
+                    Haz clic en cualquiera de los espacios
+                    del mapa para consultar la información
+                    correspondiente.
+                </p>
+
+            </div>
+
+
+            <!-- PERFIL -->
+
+            <article
+                class="stand-profile"
+                id="standProfile"
+            >
+
+                <!-- LOGO -->
+
+                <div class="profile-image">
+
+                    <img
+                        id="exhibitorLogo"
+                        src=""
+                        alt="Logo del expositor"
+                    >
+
+                    <div
+                        class="profile-placeholder"
+                        id="logoPlaceholder"
+                    >
+                        NEXUS
                     </div>
-
-                    <p class="info-kicker">
-                        INFORMACIÓN DEL EXPOSITOR
-                    </p>
-
-                    <h2>
-                        SELECCIONA UN STAND
-                    </h2>
-
-                    <p>
-                        Haz clic en cualquiera de los espacios
-                        del mapa para consultar la información
-                        correspondiente.
-                    </p>
 
                 </div>
 
 
-                <!-- PERFIL -->
+                <!-- INFORMACIÓN -->
 
-                <article
-                    class="stand-profile"
-                    id="standProfile"
-                >
+                <div class="profile-content">
 
-                    <!-- LOGO -->
 
-                    <div class="profile-image">
+                    <div class="profile-top">
 
-                        <img
-                            id="exhibitorLogo"
-                            src=""
-                            alt="Logo del expositor"
-                        >
+                        <div>
 
-                        <div
-                            class="profile-placeholder"
-                            id="logoPlaceholder"
-                        >
-                            NEXUS
+                            <span
+                                class="profile-tag"
+                                id="profileCategory"
+                            >
+                                EXPOSITOR
+                            </span>
+
+                            <h2 id="profileName">
+                                Nombre del expositor
+                            </h2>
+
+                        </div>
+
+
+                        <div class="profile-number">
+
+                            <small>
+                                STAND
+                            </small>
+
+                            <strong id="profileNumber">
+                                00
+                            </strong>
+
+                            <span
+                                class="stand-status occupied"
+                                id="profileStatus"
+                            >
+                                APARTADO
+                            </span>
+
                         </div>
 
                     </div>
 
 
-                    <!-- INFORMACIÓN -->
-
-                    <div class="profile-content">
-
-
-                        <div class="profile-top">
-
-                            <div>
-
-                                <span
-                                    class="profile-tag"
-                                    id="profileCategory"
-                                >
-                                    EXPOSITOR
-                                </span>
-
-                                <h2 id="profileName">
-                                    Nombre del expositor
-                                </h2>
-
-                            </div>
+                    <p
+                        class="profile-description"
+                        id="profileDescription"
+                    >
+                        Información del expositor.
+                    </p>
 
 
-                            <div class="profile-number">
+                    <div class="profile-data">
 
-                                <small>
-                                    STAND
-                                </small>
+                        <div>
 
-                                <strong id="profileNumber">
-                                    00
-                                </strong>
+                            <span>
+                                DIMENSIONES
+                            </span>
 
-                            </div>
+                            <strong id="profileSize">
+                                3 × 3 m
+                            </strong>
 
                         </div>
 
 
-                        <p
-                            class="profile-description"
-                            id="profileDescription"
-                        >
-                            Información del expositor.
-                        </p>
+                        <div>
 
+                            <span>
+                                CATEGORÍA
+                            </span>
 
-                        <div class="profile-data">
-
-                            <div>
-
-                                <span>
-                                    DIMENSIONES
-                                </span>
-
-                                <strong id="profileSize">
-                                    3 × 3 m
-                                </strong>
-
-                            </div>
-
-
-                            <div>
-
-                                <span>
-                                    CATEGORÍA
-                                </span>
-
-                                <strong id="profileCategoryData">
-                                    Comercial
-                                </strong>
-
-                            </div>
+                            <strong id="profileCategoryData">
+                                Comercial
+                            </strong>
 
                         </div>
 
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- GALERÍA -->
+                    <!-- ================================================= -->
+
+                    <div
+                        class="profile-gallery"
+                        id="profileGallery"
+                        style="display:none;"
+                    >
+
+                        <span class="profile-gallery-title">
+                            TRABAJOS Y PRODUCTOS
+                        </span>
 
                         <div
-                            class="profile-social"
-                            id="profileSocial"
+                            class="profile-gallery-grid"
+                            id="profileGalleryGrid"
                         ></div>
 
                     </div>
+
+
+                    <div
+                        class="profile-social"
+                        id="profileSocial"
+                    ></div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- INFORMACIÓN GENERAL -->
+    <!-- ================================================= -->
+
+    <section class="stands-info-section">
+
+        <div class="container">
+
+            <div class="stands-info-heading">
+
+                <p>
+                    ZONA COMERCIAL
+                </p>
+
+                <h2>
+                    CONOCE A NUESTROS EXPOSITORES
+                </h2>
+
+                <span>
+                    La información de cada espacio será
+                    actualizada conforme se confirmen los
+                    participantes del evento.
+                </span>
+
+            </div>
+
+
+            <div class="commercial-features">
+
+
+                <article>
+
+                    <div>
+                        🛍️
+                    </div>
+
+                    <h3>
+                        PRODUCTOS
+                    </h3>
+
+                    <p>
+                        Descubre productos, artículos
+                        coleccionables y propuestas
+                        de nuestros expositores.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <div>
+                        🎨
+                    </div>
+
+                    <h3>
+                        CREATIVIDAD
+                    </h3>
+
+                    <p>
+                        Encuentra artistas, ilustradores,
+                        emprendimientos y proyectos
+                        independientes.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <div>
+                        🤝
+                    </div>
+
+                    <h3>
+                        COMUNIDAD
+                    </h3>
+
+                    <p>
+                        Apoya al comercio local y conoce
+                        nuevos proyectos durante NEXUS FEST.
+                    </p>
 
                 </article>
 
             </div>
 
-        </section>
+        </div>
 
-
-        <!-- ================================================= -->
-        <!-- INFORMACIÓN GENERAL -->
-        <!-- ================================================= -->
-
-        <section class="stands-info-section">
-
-            <div class="container">
-
-                <div class="stands-info-heading">
-
-                    <p>
-                        ZONA COMERCIAL
-                    </p>
-
-                    <h2>
-                        CONOCE A NUESTROS EXPOSITORES
-                    </h2>
-
-                    <span>
-                        La información de cada espacio será
-                        actualizada conforme se confirmen los
-                        participantes del evento.
-                    </span>
-
-                </div>
-
-
-                <div class="commercial-features">
-
-
-                    <article>
-
-                        <div>
-                            🛍️
-                        </div>
-
-                        <h3>
-                            PRODUCTOS
-                        </h3>
-
-                        <p>
-                            Descubre productos, artículos
-                            coleccionables y propuestas
-                            de nuestros expositores.
-                        </p>
-
-                    </article>
-
-
-                    <article>
-
-                        <div>
-                            🎨
-                        </div>
-
-                        <h3>
-                            CREATIVIDAD
-                        </h3>
-
-                        <p>
-                            Encuentra artistas, ilustradores,
-                            emprendimientos y proyectos
-                            independientes.
-                        </p>
-
-                    </article>
-
-
-                    <article>
-
-                        <div>
-                            🤝
-                        </div>
-
-                        <h3>
-                            COMUNIDAD
-                        </h3>
-
-                        <p>
-                            Apoya al comercio local y conoce
-                            nuevos proyectos durante NEXUS FEST.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================================= -->
-        <!-- CTA -->
-        <!-- ================================================= -->
-
-        <section class="final-cta">
-
-            <div class="container">
-
-                <img
-                    src="assets/img/logo-nexus-fest-sin-fondo.png"
-                    alt="NEXUS FEST"
-                    class="final-logo"
-                >
-
-                <h2>
-                    NOS VEMOS EN LA ZONA COMERCIAL.
-                </h2>
-
-                <p>
-                    Explora, descubre y apoya a los
-                    expositores que serán parte de
-                    la primera edición de NEXUS FEST.
-                </p>
-
-
-                <div class="cta-buttons">
-
-                    <a
-                        href="index.html"
-                        class="btn btn-primary"
-                    >
-                        VOLVER AL INICIO
-                    </a>
-
-                    <a
-                        href="index.html#ubicacion"
-                        class="btn btn-outline"
-                    >
-                        VER UBICACIÓN
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
+    </section>
 
 
     <!-- ================================================= -->
-    <!-- FOOTER -->
+    <!-- CTA -->
     <!-- ================================================= -->
 
-    <footer class="footer">
+    <section class="final-cta">
 
         <div class="container">
 
             <img
                 src="assets/img/logo-nexus-fest-sin-fondo.png"
                 alt="NEXUS FEST"
-                class="footer-logo"
+                class="final-logo"
             >
 
-            <p>
-                NEXUS FEST · Primera Edición
-            </p>
+            <h2>
+                NOS VEMOS EN LA ZONA COMERCIAL.
+            </h2>
 
             <p>
-                04 de octubre de 2026 ·
-                Frontera, Centla, Tabasco
+                Explora, descubre y apoya a los
+                expositores que serán parte de
+                la primera edición de NEXUS FEST.
             </p>
 
-            <p class="footer-slogan">
-                No es un evento. Es una experiencia.
-            </p>
 
-            <small>
-                © 2026 NEXUS FEST.
-                Todos los derechos reservados.
-            </small>
+            <div class="cta-buttons">
+
+                <a
+                    href="index.html"
+                    class="btn btn-primary"
+                >
+                    VOLVER AL INICIO
+                </a>
+
+                <a
+                    href="index.html#ubicacion"
+                    class="btn btn-outline"
+                >
+                    VER UBICACIÓN
+                </a>
+
+            </div>
 
         </div>
 
-    </footer>
+    </section>
+
+</main>
 
 
-    <!-- ================================================= -->
-    <!-- JAVASCRIPT GENERAL -->
-    <!-- ================================================= -->
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
 
-    <script src="js/main.js"></script>
+<footer class="footer">
+
+    <div class="container">
+
+        <img
+            src="assets/img/logo-nexus-fest-sin-fondo.png"
+            alt="NEXUS FEST"
+            class="footer-logo"
+        >
+
+        <p>
+            NEXUS FEST · Primera Edición
+        </p>
+
+        <p>
+            04 de octubre de 2026 ·
+            Frontera, Centla, Tabasco
+        </p>
+
+        <p class="footer-slogan">
+            No es un evento. Es una experiencia.
+        </p>
+
+        <small>
+            © 2026 NEXUS FEST.
+            Todos los derechos reservados.
+        </small>
+
+    </div>
+
+</footer>
 
 
-    <!-- ================================================= -->
-    <!-- JAVASCRIPT DE STANDS -->
-    <!-- ================================================= -->
+<!-- ================================================= -->
+<!-- JAVASCRIPT GENERAL -->
+<!-- ================================================= -->
 
-    <script>
-
-        /* =====================================================
-           CONFIGURACIÓN DEL CROQUIS
-           ===================================================== */
-
-        const MAP_WIDTH = 1466;
-        const MAP_HEIGHT = 1079;
+<script src="js/main.js"></script>
 
 
-        /* =====================================================
-           DATOS DE EXPOSITORES
+<!-- ================================================= -->
+<!-- JAVASCRIPT DE STANDS -->
+<!-- ================================================= -->
 
-           Aquí posteriormente iremos colocando los datos reales.
+<script>
 
-           Ejemplo:
+    /* =====================================================
+       CONFIGURACIÓN DEL CROQUIS
+       ===================================================== */
 
-           1: {
-               nombre: "LETOR'S",
-               categoria: "PERSONALIZADOS",
-               descripcion: "Productos personalizados...",
-               logo: "assets/img/expositores/letors.png",
-               redes: {
-                   facebook: "https://...",
-                   instagram: "https://...",
-                   tiktok: "https://..."
-               }
+    const MAP_WIDTH = 1466;
+    const MAP_HEIGHT = 1079;
+
+
+    /* =====================================================
+       DATOS DE EXPOSITORES
+
+       IMPORTANTE:
+
+       null = STAND LIBRE
+
+       objeto = STAND APARTADO
+
+       Aquí es donde tú administrarás los expositores.
+
+       Puedes poner tantas imágenes como quieras.
+
+       Ejemplo:
+
+       1: {
+           nombre: "LETOR'S",
+           categoria: "PERSONALIZADOS",
+           descripcion: "Productos personalizados...",
+           logo: "assets/img/expositores/letors/logo.png",
+
+           imagenes: [
+               "assets/img/expositores/letors/producto1.jpg",
+               "assets/img/expositores/letors/producto2.jpg",
+               "assets/img/expositores/letors/producto3.jpg"
+           ],
+
+           redes: {
+               facebook: "https://facebook.com/...",
+               instagram: "https://instagram.com/...",
+               tiktok: "https://tiktok.com/..."
            }
-        ===================================================== */
-
-        const expositores = {
-
-            1: null,
-            2: null,
-            3: {
-               nombre: "KYO DESIGNER",
-               categoria: "DISEÑO GRAFICO",
-               descripcion: "Diseño de flyers y logotipos, corte y grabado láser, además de accesorios, llaveros, mini legos y productos creativos.",
-               logo: "assets/img/expositores/kyo.jpeg",
-               redes: {
-                   facebook: "https://www.facebook.com/share/1BbSFWsiLf/",
-                   instagram: "https://www.instagram.com/kyo_designer?igsh=Y3lwMTZoeGVieTRm&igsi=Y3lwMTZoeGVieTRm"
-                   
-               }
-           },
-            4: null,
-            5: {
-               nombre: "PASTELERIA MARISOL",
-               categoria: "POSTRES Y PASTELES",
-               descripcion: "🍰 Pastelería artesanal especializada en postres caseros, con una deliciosa variedad de pasteles, cheesecakes, chocoflanes, brownies y creaciones especiales. Sabores para todos los gustos, elaborados con dedicación para acompañar tus momentos más especiales. ✨",
-               logo: "assets/img/expositores/marisol.png",
-               redes: {
-                   facebook: "https://www.facebook.com/share/1BTPCKhAAN/?mibextid=wwXIfr",
-                   whatsapp: "https://wa.me/52⁠9131006921"
-                   
-               }
-           },
-            6: null,
-            7: null,
-            8: null,
-            9: null,
-
-            10: null,
-            11: null,
-            12: null,
-            13: {
-               nombre: "PLAY ZONE",
-               categoria: "MULTISERVICIOS",
-               descripcion: "ºFiguras y accesorios coleccionables, ºRenta de Consolas de videojuegos, ºÁrea Recreativa (Juegos de mesa, TCG, juegos de estrategia, etc.), ºServicio de Impresión 3D, ºImpresiones, Escaneos, Tramites y Servicios, ºDescarga e instalación de juegos, programas, películas, series y mucho más...",
-               logo: "assets/img/expositores/playzone.jpg",
-               redes: {
-                   facebook: "https://www.facebook.com/PlayZoneTabasco",
-                   whatsapp: "https://wa.me/529934375661",
-            
-               }
-           },
-            14: {
-               nombre: "ROSAS ETERNAS CHRIS LEON",
-               categoria: "PERSONALIZADOS",
-               descripcion: "Ramos personalizados, 🌹 Rosas eternas en cualquier temporada, 🍫 Puedes agregar: golosinas, peluches, carritos, billetes o lo que te imagines, ✨ ROSAS ETERNAS TODO EL AÑO ✨",
-               logo: "assets/img/expositores/chris.png",
-               redes: {
-                   facebook: "https://www.facebook.com/profile.php?id=61563438663625",
-                   whatsapp: "https://wa.me/529131104767",
-                   
-               }
-           },
-            15: null,
-            16: null,
-            17: null,
-            18: {
-               nombre: "GENSHIKEN TABASCO",
-               categoria: "ANIME & COLECCIONABLES",
-               descripcion: "Variedad de productos para los amantes del anime y la cultura geek, entre ellos, 🎎 Figuras de colección, 🔑 Llaveros, 📿 Collares, 📌 Pines, 🖼️ Pósters en tela y papel",
-               logo: "assets/img/expositores/genshiken.png",
-               redes: {
-                   facebook: "https://www.facebook.com/GenshikenTabasco",
-                  
-               }
-           },
-
-            19: null,
-            20: null,
-
-            21: {
-               nombre: "CREACIONES MANELY",
-               categoria: "ARTESANIAS Y REGALOS",
-               descripcion: "Creaciones artesanales y regalos personalizados para toda ocasión, desde figuras decorativas, macetas y flores hechas a mano hasta detalles especiales para cumpleaños, graduaciones y celebraciones.",
-               logo: "assets/img/expositores/manely.png",
-               redes: {
-                    facebook: "https://www.facebook.com/share/1Dis37UMvF/",
-                   whatsapp: "https://wa.me/529131081840"
-               }
-           },
-            22: null,
-            23: null,
-            24: null,
-            25: null,
-            26: null,
-            27: null,
-            28: null,
-            29: null,
-
-            30: null,
-            31: null,
-            32: null,
-
-            33: {
-               nombre: "BONUS STAGE",
-               categoria: "ATRACCIÓN",
-               descripcion: "Llega a Nexus Fest para poner a prueba tu habilidad con juegos, retos y la oportunidad de ganar increíbles premios. 🏆✨ Al comprar en stands participantes podrás obtener tokens que podrás canjear por premios exclusivos en Bonus Stage.",
-               logo: "assets/img/expositores/bonus.png",
-               redes: {
-                  
-               }
-           },
-            34: null,
-            35: {
-               nombre: "TERNUCREAM",
-               categoria: "PALETERIA",
-               descripcion: "Paletas de hielo con mucho amor, creatividad y un toque de ternura. Cada Ternurín está hecho con ingredientes deliciosos, colores divertidos y sabores que te harán sonreír desde el primer mordisco. Nos encanta experimentar, consentirte y traerte combinaciones únicas como nuestras famosas paletas con panditas, frutas , y más.",
-               logo: "assets/img/expositores/ternucream.jpg",
-               redes: {
-                   facebook: "https://www.facebook.com/share/1C4Ck1bj7P/",
-                   instagram: "https://www.instagram.com/reel/Db6bus1KL92/?igsh=ODZlN2loMzdreXBk",
-                   tiktok: "https://www.tiktok.com/@ternucreamfrontera?_r=1&_t=ZS-98wrH5ccaLV"
-               }
-           },
-            36: null,
-            37: null,
-            38: null,
-            39: null,
-            40: {
-               nombre: "TIENDA OFICIAL X LETOR'S",
-               categoria: "TIENDA DE MERCH OFICIAL",
-               descripcion: "Encuentra productos personalizados y artículos exclusivos de nuestra primera edición, ideales para llevar contigo un recuerdo de esta experiencia",
-               logo: "assets/img/expositores/letors.png",
-               redes: {
-                   facebook: "https://www.facebook.com/share/189j71Wvq7/",
-                   
-               }
-           },
-            41: null
-
-        };
-
-
-        /* =====================================================
-           POSICIONES DEL CROQUIS
-
-           Referencia:
-           imagen original = 1466 × 1079 px
-
-           Las posiciones están expresadas en porcentaje
-           para que los hotspots permanezcan alineados
-           cuando el mapa cambie de escala.
-        ===================================================== */
-
-        const posiciones = {
-
-
-            /* =================================================
-               FILA SUPERIOR
-               33 - 41
-               ================================================= */
-
-            33: {
-                x: 10.03,
-                y: 5.84,
-                w: 5.87,
-                h: 11.12
-            },
-
-            34: {
-                x: 16.00,
-                y: 5.84,
-                w: 5.94,
-                h: 11.12
-            },
-
-            35: {
-                x: 22.02,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-            36: {
-                x: 27.97,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-            37: {
-                x: 33.97,
-                y: 5.84,
-                w: 5.87,
-                h: 11.12
-            },
-
-            38: {
-                x: 39.90,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-            39: {
-                x: 45.91,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-            40: {
-                x: 51.84,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-            41: {
-                x: 63.91,
-                y: 5.84,
-                w: 5.80,
-                h: 11.12
-            },
-
-
-            /* =================================================
-               LATERAL IZQUIERDO
-               32 - 30
-               ================================================= */
-
-            32: {
-                x: 0.95,
-                y: 21.78,
-                w: 6.00,
-                h: 8.06
-            },
-
-            31: {
-                x: 0.95,
-                y: 29.93,
-                w: 6.00,
-                h: 7.88
-            },
-
-            30: {
-                x: 0.95,
-                y: 38.09,
-                w: 6.00,
-                h: 8.06
-            },
-
-
-            /* =================================================
-               FILA CENTRAL SUPERIOR
-               21 - 29
-               ================================================= */
-
-            21: {
-                x: 13.03,
-                y: 29.75,
-                w: 5.87,
-                h: 8.25
-            },
-
-            22: {
-                x: 19.03,
-                y: 29.75,
-                w: 5.74,
-                h: 8.25
-            },
-
-            23: {
-                x: 24.97,
-                y: 29.75,
-                w: 5.80,
-                h: 8.25
-            },
-
-            24: {
-                x: 30.97,
-                y: 29.75,
-                w: 5.74,
-                h: 8.25
-            },
-
-            25: {
-                x: 36.97,
-                y: 29.75,
-                w: 5.80,
-                h: 8.25
-            },
-
-            26: {
-                x: 42.97,
-                y: 29.75,
-                w: 5.80,
-                h: 8.25
-            },
-
-            27: {
-                x: 48.84,
-                y: 29.75,
-                w: 5.80,
-                h: 8.25
-            },
-
-            28: {
-                x: 54.84,
-                y: 29.75,
-                w: 5.74,
-                h: 8.25
-            },
-
-            29: {
-                x: 60.85,
-                y: 29.75,
-                w: 5.80,
-                h: 8.25
-            },
-
-
-            /* =================================================
-               LATERAL
-               20 - 19
-               ================================================= */
-
-            20: {
-                x: 0.95,
-                y: 54.22,
-                w: 6.00,
-                h: 8.06
-            },
-
-            19: {
-                x: 0.95,
-                y: 62.47,
-                w: 6.00,
-                h: 8.06
-            },
-
-
-            /* =================================================
-               FILA CENTRAL INFERIOR
-               10 - 18
-               ================================================= */
-
-            10: {
-                x: 13.23,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            11: {
-                x: 19.17,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            12: {
-                x: 25.17,
-                y: 62.47,
-                w: 5.74,
-                h: 8.06
-            },
-
-            13: {
-                x: 31.11,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            14: {
-                x: 37.11,
-                y: 62.47,
-                w: 5.74,
-                h: 8.06
-            },
-
-            15: {
-                x: 43.07,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            16: {
-                x: 49.05,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            17: {
-                x: 55.00,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-            18: {
-                x: 60.91,
-                y: 62.47,
-                w: 5.80,
-                h: 8.06
-            },
-
-
-            /* =================================================
-               FILA INFERIOR
-               9 - 1
-               ================================================= */
-
-            9: {
-                x: 0.95,
-                y: 78.68,
-                w: 6.00,
-                h: 8.43
-            },
-
-            8: {
-                x: 7.09,
-                y: 78.68,
-                w: 5.67,
-                h: 8.43
-            },
-
-            7: {
-                x: 12.96,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            },
-
-            6: {
-                x: 18.89,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            },
-
-            5: {
-                x: 24.83,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            },
-
-            4: {
-                x: 30.76,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            },
-
-            3: {
-                x: 36.70,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            },
-
-            2: {
-                x: 42.63,
-                y: 78.68,
-                w: 5.80,
-                h: 8.43
-            },
-
-            1: {
-                x: 48.64,
-                y: 78.68,
-                w: 5.74,
-                h: 8.43
-            }
-
-        };
-
-
-        /* =====================================================
-           REFERENCIAS DEL DOM
-        ===================================================== */
-
-        const mapViewport =
-            document.getElementById("mapViewport");
-
-        const mapCanvas =
-            document.getElementById("mapCanvas");
-
-        const standLayer =
-            document.getElementById("standLayer");
-
-
-        /* =====================================================
-           CREAR HOTSPOTS
-        ===================================================== */
-
-        Object.keys(posiciones).forEach(numero => {
-
-            const posicion =
-                posiciones[numero];
-
-            const stand =
-                document.createElement("button");
-
-            stand.type = "button";
-
-            stand.className =
-                "stand-hotspot";
-
-            stand.dataset.stand =
-                numero;
+       }
+
+    ===================================================== */
+
+
+const expositores = {
+            1: null,
+            2: null,
+            3: {
+               nombre: "KYO DESIGNER",
+               categoria: "DISEÑO GRAFICO",
+               descripcion: "Diseño de flyers y logotipos, corte y grabado láser, además de accesorios, llaveros, mini legos y productos creativos.",
+               logo: "assets/img/expositores/kyo.jpeg",
+
+imagenes: [
+               "assets/img/expositores/kyo/1.jpg",
+               "assets/img/expositores/kyo/2.jpg",
+               "assets/img/expositores/kyo/3.jpg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/share/1BbSFWsiLf/",
+                   instagram: "https://www.instagram.com/kyo_designer?igsh=Y3lwMTZoeGVieTRm&igsi=Y3lwMTZoeGVieTRm"
+                   
+               }
+           },
+            4: null,
+            5: {
+               nombre: "PASTELERIA MARISOL",
+               categoria: "POSTRES Y PASTELES",
+               descripcion: "🍰 Pastelería artesanal especializada en postres caseros, con una deliciosa variedad de pasteles, cheesecakes, chocoflanes, brownies y creaciones especiales. Sabores para todos los gustos, elaborados con dedicación para acompañar tus momentos más especiales. ✨",
+               logo: "assets/img/expositores/marisol.png",
+
+imagenes: [
+               "assets/img/expositores/marisol/1.jpg",
+               "assets/img/expositores/marisol/2.jpg",
+               "assets/img/expositores/marisol/3.jpg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/share/1BTPCKhAAN/?mibextid=wwXIfr",
+                   whatsapp: "https://wa.me/52⁠9131006921"
+                   
+               }
+           },
+            6: null,
+            7: null,
+            8: null,
+            9: null,
+            10: null,
+            11: null,
+            12: null,
+            13: {
+               nombre: "PLAY ZONE",
+               categoria: "MULTISERVICIOS",
+               descripcion: "ºFiguras y accesorios coleccionables, ºRenta de Consolas de videojuegos, ºÁrea Recreativa (Juegos de mesa, TCG, juegos de estrategia, etc.), ºServicio de Impresión 3D, ºImpresiones, Escaneos, Tramites y Servicios, ºDescarga e instalación de juegos, programas, películas, series y mucho más...",
+               logo: "assets/img/expositores/playzone.jpg",
+
+imagenes: [
+               "assets/img/expositores/play/1.jpg",
+               "assets/img/expositores/play/2.jpeg",
+               "assets/img/expositores/play/3.jpeg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/PlayZoneTabasco",
+                   whatsapp: "https://wa.me/529934375661",
+            
+               }
+           },
+            14: {
+               nombre: "ROSAS ETERNAS CHRIS LEON",
+               categoria: "PERSONALIZADOS",
+               descripcion: "Ramos personalizados, 🌹 Rosas eternas en cualquier temporada, 🍫 Puedes agregar: golosinas, peluches, carritos, billetes o lo que te imagines, ✨ ROSAS ETERNAS TODO EL AÑO ✨",
+               logo: "assets/img/expositores/chris.png",
+
+imagenes: [
+               "assets/img/expositores/rosa/1.jpeg",
+               "assets/img/expositores/rosa/2.jpeg",
+               "assets/img/expositores/rosa/3.jpeg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/profile.php?id=61563438663625",
+                   whatsapp: "https://wa.me/529131104767",
+                   
+               }
+           },
+            15: null,
+            16: null,
+            17: null,
+            18: {
+               nombre: "GENSHIKEN TABASCO",
+               categoria: "ANIME & COLECCIONABLES",
+               descripcion: "Variedad de productos para los amantes del anime y la cultura geek, entre ellos, 🎎 Figuras de colección, 🔑 Llaveros, 📿 Collares, 📌 Pines, 🖼️ Pósters en tela y papel",
+               logo: "assets/img/expositores/genshiken.png",
+
+imagenes: [
+               "assets/img/expositores/genshiken/1.jpg",
+               "assets/img/expositores/genshiken/2.jpg",
+               "assets/img/expositores/genshiken/3.jpg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/GenshikenTabasco",
+                  
+               }
+           },
+            19: null,
+            20: null,
+            21: {
+               nombre: "CREACIONES MANELY",
+               categoria: "ARTESANIAS Y REGALOS",
+               descripcion: "Creaciones artesanales y regalos personalizados para toda ocasión, desde figuras decorativas, macetas y flores hechas a mano hasta detalles especiales para cumpleaños, graduaciones y celebraciones.",
+               logo: "assets/img/expositores/manely.png",
+
+imagenes: [
+               "assets/img/expositores/manely/1.jpg",
+               "assets/img/expositores/manely/2.jpg",
+               "assets/img/expositores/manely/3.jpg"
+           ],
+
+               redes: {
+                    facebook: "https://www.facebook.com/share/1Dis37UMvF/",
+                   whatsapp: "https://wa.me/529131081840"
+               }
+           },
+            22: null,
+            23: null,
+            24: null,
+            25: null,
+            26: null,
+            27: null,
+            28: null,
+            29: null,
+            30: null,
+            31: null,
+            32: null,
+            33: {
+               nombre: "BONUS STAGE",
+               categoria: "ATRACCIÓN",
+               descripcion: "Llega a Nexus Fest para poner a prueba tu habilidad con juegos, retos y la oportunidad de ganar increíbles premios. 🏆✨ Al comprar en stands participantes podrás obtener tokens que podrás canjear por premios exclusivos en Bonus Stage.",
+               logo: "assets/img/expositores/bonus.png",
+               redes: {
+                  
+               }
+           },
+            34: null,
+            35: {
+               nombre: "TERNUCREAM",
+               categoria: "PALETERIA",
+               descripcion: "Paletas de hielo con mucho amor, creatividad y un toque de ternura. Cada Ternurín está hecho con ingredientes deliciosos, colores divertidos y sabores que te harán sonreír desde el primer mordisco. Nos encanta experimentar, consentirte y traerte combinaciones únicas como nuestras famosas paletas con panditas, frutas , y más.",
+               logo: "assets/img/expositores/ternucream.jpg",
+
+imagenes: [
+               "assets/img/expositores/ternu/1.jpg",
+               "assets/img/expositores/ternu/2.jpg",
+               "assets/img/expositores/ternu/3.jpg"
+           ],
+
+               redes: {
+                   facebook: "https://www.facebook.com/share/1C4Ck1bj7P/",
+                   instagram: "https://www.instagram.com/reel/Db6bus1KL92/?igsh=ODZlN2loMzdreXBk",
+                   tiktok: "https://www.tiktok.com/@ternucreamfrontera?_r=1&_t=ZS-98wrH5ccaLV"
+               }
+           },
+            36: null,
+            37: null,
+            38: null,
+            39: null,
+            40: {
+               nombre: "TIENDA OFICIAL X LETOR'S",
+               categoria: "TIENDA DE MERCH OFICIAL",
+               descripcion: "Encuentra productos personalizados y artículos exclusivos de nuestra primera edición, ideales para llevar contigo un recuerdo de esta experiencia",
+               logo: "assets/img/expositores/letors.png",
+               redes: {
+                   facebook: "https://www.facebook.com/share/189j71Wvq7/",
+                   
+               }
+           },
+            41: null
+        };
+
+
+    /* =====================================================
+       POSICIONES DEL CROQUIS
+
+       IMAGEN ORIGINAL:
+       1466 × 1079 px
+
+       NO MODIFICAR ESTAS POSICIONES.
+    ===================================================== */
+
+    const posiciones = {
+
+
+        /* FILA SUPERIOR 33 - 41 */
+
+        33: {
+            x: 10.03,
+            y: 5.84,
+            w: 5.87,
+            h: 11.12
+        },
+
+        34: {
+            x: 16.00,
+            y: 5.84,
+            w: 5.94,
+            h: 11.12
+        },
+
+        35: {
+            x: 22.02,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+        36: {
+            x: 27.97,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+        37: {
+            x: 33.97,
+            y: 5.84,
+            w: 5.87,
+            h: 11.12
+        },
+
+        38: {
+            x: 39.90,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+        39: {
+            x: 45.91,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+        40: {
+            x: 51.84,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+        41: {
+            x: 63.91,
+            y: 5.84,
+            w: 5.80,
+            h: 11.12
+        },
+
+
+        /* LATERAL IZQUIERDO 30 - 32 */
+
+        32: {
+            x: 0.95,
+            y: 21.78,
+            w: 6.00,
+            h: 8.06
+        },
+
+        31: {
+            x: 0.95,
+            y: 29.93,
+            w: 6.00,
+            h: 7.88
+        },
+
+        30: {
+            x: 0.95,
+            y: 38.09,
+            w: 6.00,
+            h: 8.06
+        },
+
+
+        /* FILA CENTRAL SUPERIOR 21 - 29 */
+
+        21: {
+            x: 13.03,
+            y: 29.75,
+            w: 5.87,
+            h: 8.25
+        },
+
+        22: {
+            x: 19.03,
+            y: 29.75,
+            w: 5.74,
+            h: 8.25
+        },
+
+        23: {
+            x: 24.97,
+            y: 29.75,
+            w: 5.80,
+            h: 8.25
+        },
+
+        24: {
+            x: 30.97,
+            y: 29.75,
+            w: 5.74,
+            h: 8.25
+        },
+
+        25: {
+            x: 36.97,
+            y: 29.75,
+            w: 5.80,
+            h: 8.25
+        },
+
+        26: {
+            x: 42.97,
+            y: 29.75,
+            w: 5.80,
+            h: 8.25
+        },
+
+        27: {
+            x: 48.84,
+            y: 29.75,
+            w: 5.80,
+            h: 8.25
+        },
+
+        28: {
+            x: 54.84,
+            y: 29.75,
+            w: 5.74,
+            h: 8.25
+        },
+
+        29: {
+            x: 60.85,
+            y: 29.75,
+            w: 5.80,
+            h: 8.25
+        },
+
+
+        /* LATERAL 19 - 20 */
+
+        20: {
+            x: 0.95,
+            y: 54.22,
+            w: 6.00,
+            h: 8.06
+        },
+
+        19: {
+            x: 0.95,
+            y: 62.47,
+            w: 6.00,
+            h: 8.06
+        },
+
+
+        /* FILA CENTRAL INFERIOR 10 - 18 */
+
+        10: {
+            x: 13.23,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        11: {
+            x: 19.17,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        12: {
+            x: 25.17,
+            y: 62.47,
+            w: 5.74,
+            h: 8.06
+        },
+
+        13: {
+            x: 31.11,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        14: {
+            x: 37.11,
+            y: 62.47,
+            w: 5.74,
+            h: 8.06
+        },
+
+        15: {
+            x: 43.07,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        16: {
+            x: 49.05,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        17: {
+            x: 55.00,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+        18: {
+            x: 60.91,
+            y: 62.47,
+            w: 5.80,
+            h: 8.06
+        },
+
+
+        /* FILA INFERIOR 9 - 1 */
+
+        9: {
+            x: 0.95,
+            y: 78.68,
+            w: 6.00,
+            h: 8.43
+        },
+
+        8: {
+            x: 7.09,
+            y: 78.68,
+            w: 5.67,
+            h: 8.43
+        },
+
+        7: {
+            x: 12.96,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        },
+
+        6: {
+            x: 18.89,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        },
+
+        5: {
+            x: 24.83,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        },
+
+        4: {
+            x: 30.76,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        },
+
+        3: {
+            x: 36.70,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        },
+
+        2: {
+            x: 42.63,
+            y: 78.68,
+            w: 5.80,
+            h: 8.43
+        },
+
+        1: {
+            x: 48.64,
+            y: 78.68,
+            w: 5.74,
+            h: 8.43
+        }
+
+    };
+
+
+    /* =====================================================
+       REFERENCIAS DEL DOM
+    ===================================================== */
+
+    const mapViewport =
+        document.getElementById("mapViewport");
+
+    const mapCanvas =
+        document.getElementById("mapCanvas");
+
+    const standLayer =
+        document.getElementById("standLayer");
+
+
+    /* =====================================================
+       CREAR HOTSPOTS
+    ===================================================== */
+
+    Object.keys(posiciones).forEach(numero => {
+
+        const posicion =
+            posiciones[numero];
+
+        const stand =
+            document.createElement("button");
+
+        stand.type =
+            "button";
+
+        stand.className =
+            "stand-hotspot";
+
+        stand.dataset.stand =
+            numero;
+
+        stand.setAttribute(
+            "aria-label",
+            `Consultar información del stand ${numero}`
+        );
+
+
+        /* Posición */
+
+        stand.style.left =
+            `${posicion.x}%`;
+
+        stand.style.top =
+            `${posicion.y}%`;
+
+        stand.style.width =
+            `${posicion.w}%`;
+
+        stand.style.height =
+            `${posicion.h}%`;
+
+
+        /* Dimensión */
+
+        const numeroStand =
+            Number(numero);
+
+        if (
+            numeroStand >= 33 &&
+            numeroStand <= 41
+        ) {
+
+            stand.dataset.size =
+                "3x4";
+
+        } else {
+
+            stand.dataset.size =
+                "3x3";
+
+        }
+
+
+        /* =================================================
+           COLOR ORIGINAL DEL CROQUIS
+           ================================================= */
+
+        if (
+            numeroStand >= 33 &&
+            numeroStand <= 41
+        ) {
+
+            stand.classList.add(
+                "stand-pink"
+            );
+
+        } else if (
+            (
+                numeroStand >= 10 &&
+                numeroStand <= 18
+            ) ||
+            (
+                numeroStand >= 21 &&
+                numeroStand <= 29
+            )
+        ) {
+
+            stand.classList.add(
+                "stand-orange"
+            );
+
+        } else if (
+            (
+                numeroStand >= 19 &&
+                numeroStand <= 20
+            ) ||
+            (
+                numeroStand >= 30 &&
+                numeroStand <= 32
+            )
+        ) {
+
+            stand.classList.add(
+                "stand-green"
+            );
+
+        } else {
+
+            stand.classList.add(
+                "stand-blue"
+            );
+
+        }
+
+
+        /* =================================================
+           NUEVO:
+
+           SI HAY EXPOSITOR,
+           MARCAR COMO APARTADO
+           ================================================= */
+
+        if (
+            expositores[numero]
+        ) {
+
+            stand.classList.add(
+                "stand-occupied"
+            );
 
             stand.setAttribute(
                 "aria-label",
-                `Consultar información del stand ${numero}`
+                `Stand ${numero} apartado. Consultar expositor.`
             );
 
-
-            /* Posición */
-
-            stand.style.left =
-                `${posicion.x}%`;
-
-            stand.style.top =
-                `${posicion.y}%`;
-
-            stand.style.width =
-                `${posicion.w}%`;
-
-            stand.style.height =
-                `${posicion.h}%`;
+        }
 
 
-            /* Dimensión */
+        /* Número */
 
-            const numeroStand =
-                Number(numero);
+        const numeroElemento =
+            document.createElement("span");
 
-            if (
-                numeroStand >= 33 &&
-                numeroStand <= 41
-            ) {
+        numeroElemento.className =
+            "stand-number";
 
-                stand.dataset.size =
-                    "3x4";
+        numeroElemento.textContent =
+            numero;
 
-            } else {
-
-                stand.dataset.size =
-                    "3x3";
-
-            }
+        stand.appendChild(
+            numeroElemento
+        );
 
 
-            /* Color */
+        /* Click */
 
-            if (
-                numeroStand >= 33 &&
-                numeroStand <= 41
-            ) {
+        stand.addEventListener(
+            "click",
+            () => {
 
-                stand.classList.add(
-                    "stand-pink"
-                );
-
-            } else if (
-                (
-                    numeroStand >= 10 &&
-                    numeroStand <= 18
-                ) ||
-                (
-                    numeroStand >= 21 &&
-                    numeroStand <= 29
-                )
-            ) {
-
-                stand.classList.add(
-                    "stand-orange"
-                );
-
-            } else if (
-                (
-                    numeroStand >= 19 &&
-                    numeroStand <= 20
-                ) ||
-                (
-                    numeroStand >= 30 &&
-                    numeroStand <= 32
-                )
-            ) {
-
-                stand.classList.add(
-                    "stand-green"
-                );
-
-            } else {
-
-                stand.classList.add(
-                    "stand-blue"
+                mostrarStand(
+                    Number(numero)
                 );
 
             }
+        );
 
 
-            /* Número */
+        standLayer.appendChild(
+            stand
+        );
 
-            const numeroElemento =
-                document.createElement("span");
+    });
 
-            numeroElemento.className =
-                "stand-number";
 
-            numeroElemento.textContent =
-                numero;
+    /* =====================================================
+       MOSTRAR INFORMACIÓN DEL STAND
+    ===================================================== */
 
-            stand.appendChild(
-                numeroElemento
+    function mostrarStand(numero) {
+
+        const datos =
+            expositores[numero];
+
+
+        const perfil =
+            document.getElementById(
+                "standProfile"
+            );
+
+        const vacio =
+            document.getElementById(
+                "standEmpty"
+            );
+
+        const numeroElemento =
+            document.getElementById(
+                "profileNumber"
+            );
+
+        const nombre =
+            document.getElementById(
+                "profileName"
+            );
+
+        const categoria =
+            document.getElementById(
+                "profileCategory"
+            );
+
+        const categoriaDatos =
+            document.getElementById(
+                "profileCategoryData"
+            );
+
+        const descripcion =
+            document.getElementById(
+                "profileDescription"
+            );
+
+        const size =
+            document.getElementById(
+                "profileSize"
+            );
+
+        const logo =
+            document.getElementById(
+                "exhibitorLogo"
+            );
+
+        const placeholder =
+            document.getElementById(
+                "logoPlaceholder"
+            );
+
+        const redes =
+            document.getElementById(
+                "profileSocial"
+            );
+
+        const galeria =
+            document.getElementById(
+                "profileGallery"
+            );
+
+        const galeriaGrid =
+            document.getElementById(
+                "profileGalleryGrid"
+            );
+
+        const estado =
+            document.getElementById(
+                "profileStatus"
             );
 
 
-            /* Click */
+        /* =================================================
+           NÚMERO
+           ================================================= */
 
-            stand.addEventListener(
-                "click",
-                () => {
-
-                    mostrarStand(
-                        Number(numero)
-                    );
-
-                }
+        numeroElemento.textContent =
+            String(numero).padStart(
+                2,
+                "0"
             );
 
 
-            standLayer.appendChild(
-                stand
+        /* =================================================
+           DIMENSIONES
+           ================================================= */
+
+        if (
+            numero >= 33 &&
+            numero <= 41
+        ) {
+
+            size.textContent =
+                "3 × 4 m";
+
+        } else {
+
+            size.textContent =
+                "3 × 3 m";
+
+        }
+
+
+        /* =================================================
+           LIMPIAR GALERÍA
+           ================================================= */
+
+        galeriaGrid.innerHTML =
+            "";
+
+        galeria.style.display =
+            "none";
+
+
+        /* =================================================
+           SIN EXPOSITOR
+           ================================================= */
+
+        if (!datos) {
+
+            nombre.textContent =
+                "STAND DISPONIBLE";
+
+            categoria.textContent =
+                "DISPONIBLE";
+
+            categoriaDatos.textContent =
+                "Espacio comercial";
+
+            descripcion.textContent =
+                "Este espacio aún se encuentra disponible o la información del expositor todavía no ha sido publicada.";
+
+
+            /* Estado */
+
+            estado.textContent =
+                "DISPONIBLE";
+
+            estado.classList.remove(
+                "occupied"
             );
 
-        });
+
+            /* Logo */
+
+            logo.removeAttribute(
+                "src"
+            );
+
+            logo.style.display =
+                "none";
+
+            placeholder.style.display =
+                "flex";
+
+            placeholder.innerHTML = `
+                <span>◈</span>
+                <small>
+                    Stand ${numero}
+                </small>
+            `;
 
 
-        /* =====================================================
-           MOSTRAR INFORMACIÓN DEL STAND
-        ===================================================== */
+            /* Redes */
 
-        function mostrarStand(numero) {
+            redes.innerHTML =
+                "";
 
-            const datos =
-                expositores[numero];
+        }
 
 
-            const perfil =
-                document.getElementById(
-                    "standProfile"
-                );
+        /* =================================================
+           CON EXPOSITOR
+           ================================================= */
 
-            const vacio =
-                document.getElementById(
-                    "standEmpty"
-                );
+        else {
 
-            const numeroElemento =
-                document.getElementById(
-                    "profileNumber"
-                );
+            nombre.textContent =
+                datos.nombre;
 
-            const nombre =
-                document.getElementById(
-                    "profileName"
-                );
+            categoria.textContent =
+                datos.categoria ||
+                "EXPOSITOR";
 
-            const categoria =
-                document.getElementById(
-                    "profileCategory"
-                );
+            categoriaDatos.textContent =
+                datos.categoria ||
+                "Comercial";
 
-            const categoriaDatos =
-                document.getElementById(
-                    "profileCategoryData"
-                );
-
-            const descripcion =
-                document.getElementById(
-                    "profileDescription"
-                );
-
-            const size =
-                document.getElementById(
-                    "profileSize"
-                );
-
-            const logo =
-                document.getElementById(
-                    "exhibitorLogo"
-                );
-
-            const placeholder =
-                document.getElementById(
-                    "logoPlaceholder"
-                );
-
-            const redes =
-                document.getElementById(
-                    "profileSocial"
-                );
+            descripcion.textContent =
+                datos.descripcion ||
+                "Información del expositor.";
 
 
-            /* Número */
+            /* Estado */
 
-            numeroElemento.textContent =
-                String(numero).padStart(
-                    2,
-                    "0"
-                );
+            estado.textContent =
+                "APARTADO";
 
-
-            /* Dimensiones */
-
-            if (
-                numero >= 33 &&
-                numero <= 41
-            ) {
-
-                size.textContent =
-                    "3 × 4 m";
-
-            } else {
-
-                size.textContent =
-                    "3 × 3 m";
-
-            }
+            estado.classList.add(
+                "occupied"
+            );
 
 
             /* =================================================
-               SIN EXPOSITOR
-            ================================================= */
+               LOGO
+               ================================================= */
 
-            if (!datos) {
+            if (
+                datos.logo
+            ) {
 
-                nombre.textContent =
-                    "STAND DISPONIBLE";
+                logo.src =
+                    datos.logo;
 
-                categoria.textContent =
-                    "DISPONIBLE";
+                logo.alt =
+                    `Logo de ${datos.nombre}`;
 
-                categoriaDatos.textContent =
-                    "Espacio comercial";
+                logo.style.display =
+                    "block";
 
-                descripcion.textContent =
-                    "Este espacio aún se encuentra disponible o la información del expositor todavía no ha sido publicada.";
+                placeholder.style.display =
+                    "none";
+
+            } else {
+
+                logo.removeAttribute(
+                    "src"
+                );
 
                 logo.style.display =
                     "none";
@@ -1508,558 +1974,588 @@
                 placeholder.innerHTML = `
                     <span>◈</span>
                     <small>
-                        Stand ${numero}
+                        ${datos.nombre}
                     </small>
                 `;
-
-                redes.innerHTML =
-                    "";
 
             }
 
 
             /* =================================================
-               CON EXPOSITOR
-            ================================================= */
+               GALERÍA DE IMÁGENES
+               ================================================= */
 
-            else {
+            if (
+                Array.isArray(
+                    datos.imagenes
+                ) &&
+                datos.imagenes.length > 0
+            ) {
 
-                nombre.textContent =
-                    datos.nombre;
+                datos.imagenes.forEach(
+                    (imagen, indice) => {
 
-                categoria.textContent =
-                    datos.categoria ||
-                    "EXPOSITOR";
+                        if (
+                            !imagen
+                        ) {
 
-                categoriaDatos.textContent =
-                    datos.categoria ||
-                    "Comercial";
+                            return;
 
-                descripcion.textContent =
-                    datos.descripcion ||
-                    "Información del expositor.";
-
-
-                /* Logo */
-
-                if (datos.logo) {
-
-                    logo.src =
-                        datos.logo;
-
-                    logo.alt =
-                        `Logo de ${datos.nombre}`;
-
-                    logo.style.display =
-                        "block";
-
-                    placeholder.style.display =
-                        "none";
-
-                } else {
-
-                    logo.style.display =
-                        "none";
-
-                    placeholder.style.display =
-                        "flex";
-
-                    placeholder.innerHTML = `
-                        <span>◈</span>
-                        <small>
-                            ${datos.nombre}
-                        </small>
-                    `;
-
-                }
+                        }
 
 
-                /* Redes */
+                        const enlace =
+                            document.createElement(
+                                "a"
+                            );
 
-                let redesHTML =
-                    "";
+                        enlace.className =
+                            "profile-gallery-item";
 
+                        enlace.href =
+                            imagen;
 
-                if (
-                    datos.redes &&
-                    datos.redes.facebook
-                ) {
+                        enlace.target =
+                            "_blank";
 
-                    redesHTML += `
-                        <a
-                            href="${datos.redes.facebook}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Facebook
-                        </a>
-                    `;
+                        enlace.rel =
+                            "noopener noreferrer";
 
-                }
-
-
-                if (
-                    datos.redes &&
-                    datos.redes.instagram
-                ) {
-
-                    redesHTML += `
-                        <a
-                            href="${datos.redes.instagram}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Instagram
-                        </a>
-                    `;
-
-                }
+                        enlace.setAttribute(
+                            "aria-label",
+                            `Ver imagen ${indice + 1} de ${datos.nombre}`
+                        );
 
 
-                if (
-                    datos.redes &&
-                    datos.redes.tiktok
-                ) {
+                        const img =
+                            document.createElement(
+                                "img"
+                            );
 
-                    redesHTML += `
-                        <a
-                            href="${datos.redes.tiktok}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            TikTok
-                        </a>
-                    `;
+                        img.src =
+                            imagen;
 
-                }
+                        img.alt =
+                            `${datos.nombre} - trabajo ${indice + 1}`;
 
- if (
-                    datos.redes &&
-                    datos.redes.whatsapp
-                ) {
-
-                    redesHTML += `
-                        <a
-                            href="${datos.redes.whatsapp}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Whatsapp
-                        </a>
-                    `;
-
-                }
+                        img.loading =
+                            "lazy";
 
 
+                        enlace.appendChild(
+                            img
+                        );
 
-                redes.innerHTML =
-                    redesHTML;
-
-            }
-
-
-            /* Mostrar */
-
-            vacio.style.display =
-                "none";
-
-            perfil.classList.add(
-                "visible"
-            );
-
-
-            /* Marcar stand seleccionado */
-
-            document
-                .querySelectorAll(
-                    ".stand-hotspot"
-                )
-                .forEach(
-                    elemento => {
-
-                        elemento.classList.remove(
-                            "selected"
+                        galeriaGrid.appendChild(
+                            enlace
                         );
 
                     }
                 );
 
 
-            const seleccionado =
-                document.querySelector(
-                    `.stand-hotspot[data-stand="${numero}"]`
-                );
+                /*
+                 * Solo mostramos la galería
+                 * si realmente se generaron imágenes.
+                 */
 
+                if (
+                    galeriaGrid.children.length > 0
+                ) {
 
-            if (seleccionado) {
+                    galeria.style.display =
+                        "block";
 
-                seleccionado.classList.add(
-                    "selected"
-                );
+                }
 
             }
 
 
-            /* Scroll */
+            /* =================================================
+               REDES SOCIALES
+               ================================================= */
 
-            document
-                .getElementById(
-                    "standInfo"
-                )
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+            let redesHTML =
+                "";
+
+
+            if (
+                datos.redes &&
+                datos.redes.facebook
+            ) {
+
+                redesHTML += `
+                    <a
+                        href="${datos.redes.facebook}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Facebook
+                    </a>
+                `;
+
+            }
+
+
+            if (
+                datos.redes &&
+                datos.redes.instagram
+            ) {
+
+                redesHTML += `
+                    <a
+                        href="${datos.redes.instagram}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Instagram
+                    </a>
+                `;
+
+            }
+
+
+            if (
+                datos.redes &&
+                datos.redes.tiktok
+            ) {
+
+                redesHTML += `
+                    <a
+                        href="${datos.redes.tiktok}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        TikTok
+                    </a>
+                `;
+
+            }
+
+
+            redes.innerHTML =
+                redesHTML;
 
         }
 
 
-        /* =====================================================
-           SISTEMA DE ZOOM
-        ===================================================== */
+        /* =================================================
+           MOSTRAR PERFIL
+           ================================================= */
 
-        let zoomFactor =
+        vacio.style.display =
+            "none";
+
+        perfil.classList.add(
+            "visible"
+        );
+
+
+        /* =================================================
+           MARCAR STAND SELECCIONADO
+           ================================================= */
+
+        document
+            .querySelectorAll(
+                ".stand-hotspot"
+            )
+            .forEach(
+                elemento => {
+
+                    elemento.classList.remove(
+                        "selected"
+                    );
+
+                }
+            );
+
+
+        const seleccionado =
+            document.querySelector(
+                `.stand-hotspot[data-stand="${numero}"]`
+            );
+
+
+        if (
+            seleccionado
+        ) {
+
+            seleccionado.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        /* =================================================
+           SCROLL
+           ================================================= */
+
+        document
+            .getElementById(
+                "standInfo"
+            )
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+    }
+
+
+    /* =====================================================
+       SISTEMA DE ZOOM
+       ===================================================== */
+
+    let zoomFactor =
+        1;
+
+    let fitScale =
+        1;
+
+    let panX =
+        0;
+
+    let panY =
+        0;
+
+
+    function calcularEscalaInicial() {
+
+        const ancho =
+            mapViewport.clientWidth;
+
+        const alto =
+            mapViewport.clientHeight;
+
+
+        const margen =
+            30;
+
+
+        const escalaHorizontal =
+            (
+                ancho -
+                margen
+            ) /
+            MAP_WIDTH;
+
+        const escalaVertical =
+            (
+                alto -
+                margen
+            ) /
+            MAP_HEIGHT;
+
+
+        fitScale =
+            Math.min(
+                escalaHorizontal,
+                escalaVertical
+            );
+
+
+        fitScale =
+            Math.min(
+                Math.max(
+                    fitScale,
+                    0.30
+                ),
+                1
+            );
+
+
+        zoomFactor =
             1;
 
-        let fitScale =
-            1;
-
-        let panX =
+        panX =
             0;
 
-        let panY =
+        panY =
             0;
 
 
-        function calcularEscalaInicial() {
+        actualizarMapa();
 
-            const ancho =
-                mapViewport.clientWidth;
-
-            const alto =
-                mapViewport.clientHeight;
+    }
 
 
-            const margen =
-                30;
+    function actualizarMapa() {
+
+        const escala =
+            fitScale *
+            zoomFactor;
 
 
-            const escalaHorizontal =
-                (ancho - margen) /
-                MAP_WIDTH;
+        mapCanvas.style.transform =
+            `translate(
+                calc(-50% + ${panX}px),
+                calc(-50% + ${panY}px)
+            )
+            scale(${escala})`;
 
-            const escalaVertical =
-                (alto - margen) /
-                MAP_HEIGHT;
+    }
 
 
-            fitScale =
-                Math.min(
-                    escalaHorizontal,
-                    escalaVertical
-                );
+    /* =====================================================
+       BOTONES DE ZOOM
+       ===================================================== */
 
+    document
+        .getElementById("zoomIn")
+        .addEventListener(
+            "click",
+            () => {
+
+                zoomFactor =
+                    Math.min(
+                        zoomFactor + 0.15,
+                        3
+                    );
+
+                actualizarMapa();
+
+            }
+        );
+
+
+    document
+        .getElementById("zoomOut")
+        .addEventListener(
+            "click",
+            () => {
+
+                zoomFactor =
+                    Math.max(
+                        zoomFactor - 0.15,
+                        0.35
+                    );
+
+                actualizarMapa();
+
+            }
+        );
+
+
+    document
+        .getElementById("zoomReset")
+        .addEventListener(
+            "click",
+            () => {
+
+                calcularEscalaInicial();
+
+            }
+        );
+
+
+    /* =====================================================
+       ZOOM CON RUEDA
+       ===================================================== */
+
+    mapViewport.addEventListener(
+        "wheel",
+        event => {
+
+            event.preventDefault();
+
+
+            if (
+                event.deltaY < 0
+            ) {
+
+                zoomFactor =
+                    Math.min(
+                        zoomFactor + 0.10,
+                        3
+                    );
+
+            } else {
+
+                zoomFactor =
+                    Math.max(
+                        zoomFactor - 0.10,
+                        0.35
+                    );
+
+            }
+
+
+            actualizarMapa();
+
+        },
+        {
+            passive: false
+        }
+    );
+
+
+    /* =====================================================
+       ARRASTRAR MAPA
+       ===================================================== */
+
+    let dragging =
+        false;
+
+    let startX =
+        0;
+
+    let startY =
+        0;
+
+    let initialPanX =
+        0;
+
+    let initialPanY =
+        0;
+
+
+    mapViewport.addEventListener(
+        "pointerdown",
+        event => {
 
             /*
-             Evitamos que el mapa sea demasiado pequeño
-             en pantallas grandes.
-            */
+             * Si se hace clic sobre un stand,
+             * no iniciamos el arrastre.
+             */
 
-            fitScale =
-                Math.min(
-                    Math.max(
-                        fitScale,
-                        0.30
-                    ),
-                    1
-                );
+            if (
+                event.target.closest(
+                    ".stand-hotspot"
+                )
+            ) {
+
+                return;
+
+            }
 
 
-            zoomFactor =
-                1;
+            dragging =
+                true;
+
+            mapViewport.classList.add(
+                "dragging"
+            );
+
+
+            startX =
+                event.clientX;
+
+            startY =
+                event.clientY;
+
+            initialPanX =
+                panX;
+
+            initialPanY =
+                panY;
+
+
+            mapViewport.setPointerCapture(
+                event.pointerId
+            );
+
+        }
+    );
+
+
+    mapViewport.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                !dragging
+            ) {
+
+                return;
+
+            }
+
 
             panX =
-                0;
+                initialPanX +
+                (
+                    event.clientX -
+                    startX
+                );
 
             panY =
-                0;
+                initialPanY +
+                (
+                    event.clientY -
+                    startY
+                );
 
 
             actualizarMapa();
 
         }
+    );
 
 
-        function actualizarMapa() {
+    function terminarArrastre(event) {
 
-            const escala =
-                fitScale *
-                zoomFactor;
-
-
-            mapCanvas.style.transform =
-                `translate(
-                    calc(-50% + ${panX}px),
-                    calc(-50% + ${panY}px)
-                )
-                scale(${escala})`;
-
-        }
-
-
-        /* =====================================================
-           BOTONES DE ZOOM
-        ===================================================== */
-
-        document
-            .getElementById("zoomIn")
-            .addEventListener(
-                "click",
-                () => {
-
-                    zoomFactor =
-                        Math.min(
-                            zoomFactor + 0.15,
-                            3
-                        );
-
-                    actualizarMapa();
-
-                }
-            );
-
-
-        document
-            .getElementById("zoomOut")
-            .addEventListener(
-                "click",
-                () => {
-
-                    zoomFactor =
-                        Math.max(
-                            zoomFactor - 0.15,
-                            0.35
-                        );
-
-                    actualizarMapa();
-
-                }
-            );
-
-
-        document
-            .getElementById("zoomReset")
-            .addEventListener(
-                "click",
-                () => {
-
-                    calcularEscalaInicial();
-
-                }
-            );
-
-
-        /* =====================================================
-           ZOOM CON RUEDA DEL MOUSE
-        ===================================================== */
-
-        mapViewport.addEventListener(
-            "wheel",
-            event => {
-
-                event.preventDefault();
-
-
-                if (event.deltaY < 0) {
-
-                    zoomFactor =
-                        Math.min(
-                            zoomFactor + 0.10,
-                            3
-                        );
-
-                } else {
-
-                    zoomFactor =
-                        Math.max(
-                            zoomFactor - 0.10,
-                            0.35
-                        );
-
-                }
-
-
-                actualizarMapa();
-
-            },
-            {
-                passive: false
-            }
-        );
-
-
-        /* =====================================================
-           ARRASTRAR MAPA
-        ===================================================== */
-
-        let dragging =
+        dragging =
             false;
 
-        let startX =
-            0;
-
-        let startY =
-            0;
-
-        let initialPanX =
-            0;
-
-        let initialPanY =
-            0;
-
-
-        mapViewport.addEventListener(
-            "pointerdown",
-            event => {
-
-                /*
-                 Si se hace clic directamente
-                 sobre un stand no iniciamos el arrastre.
-                */
-
-                if (
-                    event.target.closest(
-                        ".stand-hotspot"
-                    )
-                ) {
-
-                    return;
-
-                }
-
-
-                dragging =
-                    true;
-
-                mapViewport.classList.add(
-                    "dragging"
-                );
-
-
-                startX =
-                    event.clientX;
-
-                startY =
-                    event.clientY;
-
-                initialPanX =
-                    panX;
-
-                initialPanY =
-                    panY;
-
-
-                mapViewport.setPointerCapture(
-                    event.pointerId
-                );
-
-            }
+        mapViewport.classList.remove(
+            "dragging"
         );
 
 
-        mapViewport.addEventListener(
-            "pointermove",
-            event => {
+        try {
 
-                if (!dragging) {
-
-                    return;
-
-                }
-
-
-                panX =
-                    initialPanX +
-                    (
-                        event.clientX -
-                        startX
-                    );
-
-                panY =
-                    initialPanY +
-                    (
-                        event.clientY -
-                        startY
-                    );
-
-
-                actualizarMapa();
-
-            }
-        );
-
-
-        function terminarArrastre(event) {
-
-            dragging =
-                false;
-
-            mapViewport.classList.remove(
-                "dragging"
+            mapViewport.releasePointerCapture(
+                event.pointerId
             );
 
+        } catch (
+            error
+        ) {}
 
-            try {
+    }
 
-                mapViewport.releasePointerCapture(
-                    event.pointerId
-                );
 
-            } catch (error) {}
+    mapViewport.addEventListener(
+        "pointerup",
+        terminarArrastre
+    );
+
+    mapViewport.addEventListener(
+        "pointercancel",
+        terminarArrastre
+    );
+
+
+    /* =====================================================
+       REDIMENSIONAMIENTO
+       ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            calcularEscalaInicial();
 
         }
+    );
 
 
-        mapViewport.addEventListener(
-            "pointerup",
-            terminarArrastre
-        );
+    /* =====================================================
+       INICIALIZACIÓN
+       ===================================================== */
 
-        mapViewport.addEventListener(
-            "pointercancel",
-            terminarArrastre
-        );
+    window.addEventListener(
+        "load",
+        () => {
 
+            calcularEscalaInicial();
 
-        /* =====================================================
-           REDIMENSIONAMIENTO
-        ===================================================== */
+        }
+    );
 
-        window.addEventListener(
-            "resize",
-            () => {
-
-                calcularEscalaInicial();
-
-            }
-        );
-
-
-        /* =====================================================
-           INICIALIZACIÓN
-        ===================================================== */
-
-        window.addEventListener(
-            "load",
-            () => {
-
-                calcularEscalaInicial();
-
-            }
-        );
-
-    </script>
-
+</script>
+```
 
 </body>
 
